@@ -25,7 +25,7 @@
       "coverImage": "./comicsimages/onepunchman/season1/chapter1/1_Page_01.jpg",
       "imageData": {
         "basePath": "./comicsimages/onepunchman/season1/chapter2/",
-        "filenamePrefix": "2_page_",
+        "filenamePrefix": "2_Page_",
         "pageNumberPadding": 2,
         "imageFormat": "jpg",
         "pageCount": 16
