@@ -22,9 +22,9 @@
       "description": "Saitama is a hero who can defeat any enemy with a single punch, but he is bored with his own strength.",
       "level": "beginner",
       "locked": true,
-      "coverImage": "comicsimages/onepunchman/season1/chapter1/1_Page_01.jpg",
+      "coverImage": "./comicsimages/onepunchman/season1/chapter1/1_Page_01.jpg",
       "imageData": {
-        "basePath": "comicsimages/onepunchman/season1/chapter2/",
+        "basePath": "./comicsimages/onepunchman/season1/chapter2/",
         "filenamePrefix": "2_page_",
         "pageNumberPadding": 2,
         "imageFormat": "jpg",
