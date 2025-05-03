@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vocabulary Lists - Comic Linguist</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .page-content {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #e44d26;
+        }
+
+        .feature-section {
+            margin-bottom: 30px;
+        }
+
+        .feature-section h2 {
+            color: #e44d26;
+            border-bottom: 2px solid #e44d26;
+            padding-bottom: 5px;
+            margin-bottom: 15px;
+        }
+
+        .feature-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .feature-text {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .vocab-category {
+            margin-bottom: 20px;
+        }
+
+        .vocab-category h3 {
+            color: #e44d26;
+            padding-bottom: 5px;
+            border-bottom: 1px solid #ddd;
+            margin-bottom: 10px;
+        }
+
+        .vocab-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .vocab-list li {
+            padding: 10px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .vocab-list li:last-child {
+            border-bottom: none;
+        }
+
+        .word {
+            font-weight: bold;
+            color: #1e88e5;
+        }
+
+        .definition {
+            font-style: italic;
+            color: #777;
+        }
+
+        .example {
+            color: #555;
+        }
+
+        .tool-box {
+            flex: 1;
+            min-width: 300px;
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .tool-box h3 {
+            color: #e44d26;
+            margin-bottom: 15px;
+        }
+
+        .tool-box ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .tool-box li {
+            padding: 8px 0;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .btn-primary {
+            background-color: #e44d26;
+            color: #fff;
+        }
+
+        .btn-outline {
+            border: 1px solid #e44d26;
+            color: #e44d26;
+            background-color: transparent;
+        }
+
+        .btn-primary:hover, .btn-outline:hover {
+            background-color: #c63e1f;
+            color: #fff;
+        }
+
+        .cta-section {
+            text-align: center;
+            padding: 30px 0;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            margin-top: 30px;
+        }
+
+        .cta-section h2 {
+            color: #e44d26;
+            margin-bottom: 15px;
+        }
+
+        .cta-buttons {
+            margin-top: 20px;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 30px 0;
+            text-align: center;
+        }
+
+        .footer-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        .footer-col {
+            margin-bottom: 20px;
+        }
+
+        .footer-col h3 {
+            color: #e44d26;
+            margin-bottom: 15px;
+        }
+
+        .footer-col p {
+            margin-bottom: 15px;
+        }
+
+        .footer-col ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-col li {
+            padding: 5px 0;
+        }
+
+        .footer-col a {
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-col a:hover {
+            color: #e44d26;
+        }
+
+        .social-links a {
+            display: inline-block;
+            margin: 0 10px;
+            font-size: 20px;
+        }
+
+        .copyright {
+            margin-top: 20px;
+            font-size: 0.9em;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                width: 95%;
+            }
+
+            .feature-content {
+                flex-direction: column;
+            }
+
+            .footer-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .footer-col {
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main class="container page-content">
+        <h1>Vocabulary Lists</h1>
+
+        <section class="feature-section">
+            <h2>Common Comic Book Vocabulary</h2>
+            <div class="feature-content">
+                <div class="feature-text">
+                    <div class="vocab-category">
+                        <h3><i class="fas fa-mask"></i> Character Descriptions</h3>
+                        <ul class="vocab-list">
+                            <li>
+                                <span class="word">Hero</span>
+                                <span class="definition">A brave or exceptional person, especially one who helps others</span>
+                                <span class="example">"Every hero needs a weakness to overcome."</span>
+                            </li>
+                            <li>
+                                <span class="word">Villain</span>
+                                <span class="definition">A character whose evil actions or motives are important to the plot</span>
+                                <span class="example">"The villain revealed their master plan."</span>
+                            </li>
+                            <li>
+                                <span class="word">Sidekick</span>
+                                <span class="definition">A close friend or associate who helps and supports someone</span>
+                                <span class="example">"Every hero needs a reliable sidekick."</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="vocab-category">
+                        <h3><i class="fas fa-bolt"></i> Action Words</h3>
+                        <ul class="vocab-list">
+                            <li>
+                                <span class="word">Battle</span>
+                                <span class="definition">To fight or struggle against someone or something</span>
+                                <span class="example">"The heroes battle against evil forces."</span>
+                            </li>
+                            <li>
+                                <span class="word">Defend</span>
+                                <span class="definition">To protect from harm or danger</span>
+                                <span class="example">"They defend the city from attacks."</span>
+                            </li>
+                            <li>
+                                <span class="word">Transform</span>
+                                <span class="definition">To change completely in form or appearance</span>
+                                <span class="example">"The character transforms into their superhero form."</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="feature-section">
+            <h2>Essential Expressions</h2>
+            <div class="feature-content">
+                <div class="feature-text">
+                    <div class="vocab-category">
+                        <h3><i class="fas fa-comment"></i> Common Phrases</h3>
+                        <ul class="vocab-list">
+                            <li>
+                                <span class="word">Look out!</span>
+                                <span class="definition">Used to warn someone of danger</span>
+                                <span class="example">"Look out! The building is falling!"</span>
+                            </li>
+                            <li>
+                                <span class="word">Never give up</span>
+                                <span class="definition">To continue trying, despite difficulties</span>
+                                <span class="example">"Even when things look bad, never give up!"</span>
+                            </li>
+                            <li>
+                                <span class="word">Count on me</span>
+                                <span class="definition">To depend on or trust someone</span>
+                                <span class="example">"You can count on me to help!"</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="vocab-category">
+                        <h3><i class="fas fa-exclamation"></i> Exclamations</h3>
+                        <ul class="vocab-list">
+                            <li>
+                                <span class="word">Amazing!</span>
+                                <span class="definition">Expressing great surprise or wonder</span>
+                                <span class="example">"Amazing! They defeated the monster!"</span>
+                            </li>
+                            <li>
+                                <span class="word">Oh no!</span>
+                                <span class="definition">Expressing dismay or concern</span>
+                                <span class="example">"Oh no! The villain escaped!"</span>
+                            </li>
+                            <li>
+                                <span class="word">Incredible!</span>
+                                <span class="definition">Expressing disbelief or amazement</span>
+                                <span class="example">"Incredible! Their power level is off the charts!"</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="feature-section">
+            <h2>Descriptive Language</h2>
+            <div class="feature-content">
+                <div class="feature-text">
+                    <div class="vocab-category">
+                        <h3><i class="fas fa-palette"></i> Appearance Words</h3>
+                        <ul class="vocab-list">
+                            <li>
+                                <span class="word">Muscular</span>
+                                <span class="definition">Having well-developed muscles; strong</span>
+                                <span class="example">"The muscular hero lifted the car easily."</span>
+                            </li>
+                            <li>
+                                <span class="word">Mysterious</span>
+                                <span class="definition">Difficult to understand or explain; enigmatic</span>
+                                <span class="example">"A mysterious figure appeared in the shadows."</span>
+                            </li>
+                            <li>
+                                <span class="word">Agile</span>
+                                <span class="definition">Able to move quickly and easily</span>
+                                <span class="example">"The agile hero dodged all attacks."</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="vocab-category">
+                        <h3><i class="fas fa-cloud"></i> Setting Description</h3>
+                        <ul class="vocab-list">
+                            <li>
+                                <span class="word">Gloomy</span>
+                                <span class="definition">Dark or dim; expressing melancholy</span>
+                                <span class="example">"The gloomy alley was perfect for an ambush."</span>
+                            </li>
+                            <li>
+                                <span class="word">Bustling</span>
+                                <span class="definition">Full of energetic activity</span>
+                                <span class="example">"The bustling city never sleeps."</span>
+                            </li>
+                            <li>
+                                <span class="word">Desolate</span>
+                                <span class="definition">Empty and lonely; deserted</span>
+                                <span class="example">"The battlefield was desolate after the fight."</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="feature-section">
+            <h2>Practice Tools</h2>
+            <div class="feature-content">
+                <div class="tool-box">
+                    <h3><i class="fas fa-gamepad"></i> Vocabulary Games</h3>
+                    <ul>
+                        <li>Flashcard Challenge</li>
+                        <li>Word Match Game</li>
+                        <li>Vocabulary Quiz</li>
+                        <li>Context Practice</li>
+                    </ul>
+                    <a href="#games" class="btn btn-outline">Play Now</a>
+                </div>
+
+                <div class="tool-box">
+                    <h3><i class="fas fa-tasks"></i> Progress Tracking</h3>
+                    <ul>
+                        <li>Word Lists Progress</li>
+                        <li>Learning Statistics</li>
+                        <li>Achievement Badges</li>
+                        <li>Review Schedule</li>
+                    </ul>
+                    <a href="#progress" class="btn btn-outline">Track Progress</a>
+                </div>
+            </div>
+        </section>
+
+        <div class="cta-section">
+            <h2>Ready to Expand Your Vocabulary?</h2>
+            <p>Start reading comics and learning new words today!</p>
+            <div class="cta-buttons">
+                <a href="../index.html#comics" class="btn btn-primary">Browse Comics</a>
+                <a href="levels.html" class="btn btn-outline">Find Your Level</a>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container footer-container">
+            <div class="footer-col">
+                <h3>Comic Linguist</h3>
+                <p>Learn English through engaging comic books...</p>
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../index.html#comics">Comics</a></li>
+                    <li><a href="levels.html">Levels</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Resources</h3>
+                <ul>
+                    <li><a href="how-it-works.html">How It Works</a></li>
+                    <li><a href="learning-tips.html">Learning Tips</a></li>
+                    <li><a href="grammar-guides.html">Grammar Guides</a></li>
+                    <li><a href="vocabulary-lists.html">Vocabulary Lists</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Support</h3>
+                <ul>
+                    <li><a href="faq.html">FAQs</a></li>
+                    <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                    <li><a href="terms-of-service.html">Terms of Service</a></li>
+                    <li><a href="help-center.html">Help Center</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>© <span id="copyright-year">2025</span> Comic Linguist. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="../script.js"></script>
+</body>
+</html>

@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Help Center - Comic Linguist</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Help Center Specific Styles */
+        .page-content {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .page-content h1 {
+            color: #e44d26;
+            /* A vibrant color for emphasis */
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .search-section {
+            margin-bottom: 30px;
+        }
+
+        .help-search {
+            display: flex;
+            align-items: center;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 5px 10px;
+        }
+
+        .help-search i {
+            margin-right: 10px;
+            color: #777;
+        }
+
+        .help-search input {
+            border: none;
+            outline: none;
+            padding: 10px;
+            font-size: 16px;
+            width: 100%;
+        }
+
+        .help-section {
+            margin-bottom: 40px;
+        }
+
+        .help-section h2 {
+            color: #e44d26;
+            /* Consistent color for headings */
+            border-bottom: 2px solid #e44d26;
+            /* Underline with the same color */
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        .help-grid,
+        .tutorial-grid,
+        .troubleshoot-grid,
+        .support-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .help-card,
+        .tutorial-card,
+        .troubleshoot-card,
+        .support-card {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .help-card i {
+            font-size: 40px;
+            color: #e44d26;
+            /* Icon color */
+            margin-bottom: 15px;
+        }
+
+        .help-card h3 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .help-card ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .help-card li {
+            margin-bottom: 8px;
+        }
+
+        .help-card a {
+            color: #555;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .help-card a:hover {
+            color: #e44d26;
+        }
+
+        .tutorial-card .video-placeholder {
+            background-color: #ddd;
+            border-radius: 8px;
+            height: 200px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: #777;
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+
+        .tutorial-card .video-placeholder i {
+            font-size: 60px;
+            margin-bottom: 10px;
+        }
+
+        .tutorial-card h3 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .tutorial-card p {
+            color: #555;
+            font-size: 14px;
+        }
+
+        .troubleshoot-card h3 {
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .troubleshoot-card i {
+            color: #e44d26;
+            /* Icon color */
+            margin-right: 5px;
+        }
+
+        .troubleshoot-card ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .troubleshoot-card li {
+            margin-bottom: 8px;
+        }
+
+        .troubleshoot-card a {
+            color: #555;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .troubleshoot-card a:hover {
+            color: #e44d26;
+        }
+
+        .support-card {
+            text-align: center;
+        }
+
+        .support-card i {
+            font-size: 50px;
+            color: #e44d26;
+            /* Icon color */
+            margin-bottom: 15px;
+        }
+
+        .support-card h3 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .support-card p {
+            color: #555;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .btn-primary {
+            background-color: #e44d26;
+            color: #fff;
+            border: 1px solid #e44d26;
+        }
+
+        .btn-primary:hover {
+            background-color: #c63e1f;
+            border-color: #c63e1f;
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: #e44d26;
+            border: 1px solid #e44d26;
+        }
+
+        .btn-outline:hover {
+            background-color: #fff5f3;
+            /* A very light tint of the primary color */
+            color: #c63e1f;
+            border-color: #c63e1f;
+        }
+
+        .cta-section {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .cta-section h2 {
+            color: #e44d26;
+            /* Consistent color for headings */
+            margin-bottom: 15px;
+        }
+
+        .cta-section p {
+            color: #555;
+            font-size: 16px;
+            margin-bottom: 25px;
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        /* Footer Styles */
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .footer-col h3 {
+            color: #e44d26;
+            /* Consistent color for headings */
+            margin-bottom: 20px;
+        }
+
+        .footer-col p {
+            color: #ddd;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .footer-col ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-col li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col a {
+            color: #ddd;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-col a:hover {
+            color: #fff;
+        }
+
+        .social-links {
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            display: inline-block;
+            margin: 0 10px;
+            font-size: 20px;
+            color: #ddd;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: #fff;
+        }
+
+        .copyright {
+            margin-top: 30px;
+            font-size: 14px;
+            color: #ddd;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+
+            .page-content {
+                padding: 20px;
+            }
+
+            .help-grid,
+            .tutorial-grid,
+            .troubleshoot-grid,
+            .support-options {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .footer-container {
+                grid-template-columns: 1fr;
+                text-align: left;
+            }
+
+            .footer-col {
+                margin-bottom: 30px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <main class="container page-content">
+        <h1>Help Center</h1>
+
+        <div class="search-section">
+            <div class="help-search">
+                <i class="fas fa-search"></i>
+                <input type="search" placeholder="Search help articles..." aria-label="Search help articles">
+            </div>
+        </div>
+
+        <section class="help-section">
+            <h2>Popular Topics</h2>
+            <div class="help-grid">
+                <div class="help-card">
+                    <i class="fas fa-book"></i>
+                    <h3>Getting Started</h3>
+                    <ul>
+                        <li><a href="#account">Creating an Account</a></li>
+                        <li><a href="#level-test">Taking the Level Test</a></li>
+                        <li><a href="#first-comic">Reading Your First Comic</a></li>
+                        <li><a href="#study-plan">Creating a Study Plan</a></li>
+                    </ul>
+                </div>
+
+                <div class="help-card">
+                    <i class="fas fa-tools"></i>
+                    <h3>Using Features</h3>
+                    <ul>
+                        <li><a href="#translation">Translation Tools</a></li>
+                        <li><a href="#pronunciation">Audio Features</a></li>
+                        <li><a href="#exercises">Practice Exercises</a></li>
+                        <li><a href="#progress">Progress Tracking</a></li>
+                    </ul>
+                </div>
+
+                <div class="help-card">
+                    <i class="fas fa-user-cog"></i>
+                    <h3>Account Settings</h3>
+                    <ul>
+                        <li><a href="#profile">Profile Management</a></li>
+                        <li><a href="#preferences">Learning Preferences</a></li>
+                        <li><a href="#notifications">Notification Settings</a></li>
+                        <li><a href="#privacy">Privacy Options</a></li>
+                    </ul>
+                </div>
+
+                <div class="help-card">
+                    <i class="fas fa-mobile-alt"></i>
+                    <h3>Device Support</h3>
+                    <ul>
+                        <li><a href="#compatibility">Device Compatibility</a></li>
+                        <li><a href="#offline">Offline Reading</a></li>
+                        <li><a href="#sync">Cross-Device Sync</a></li>
+                        <li><a href="#mobile">Mobile Features</a></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="help-section">
+            <h2>Video Tutorials</h2>
+            <div class="tutorial-grid">
+                <div class="tutorial-card">
+                    <div class="video-placeholder">
+                        <i class="fas fa-play-circle"></i>
+                        <span>Getting Started Guide</span>
+                    </div>
+                    <h3>Introduction to Comic Linguist</h3>
+                    <p>Learn the basics of using Comic Linguist to improve your English.</p>
+                </div>
+
+                <div class="tutorial-card">
+                    <div class="video-placeholder">
+                        <i class="fas fa-play-circle"></i>
+                        <span>Interactive Features</span>
+                    </div>
+                    <h3>Using Interactive Tools</h3>
+                    <p>Master our interactive learning tools and features.</p>
+                </div>
+
+                <div class="tutorial-card">
+                    <div class="video-placeholder">
+                        <i class="fas fa-play-circle"></i>
+                        <span>Progress Tracking</span>
+                    </div>
+                    <h3>Track Your Progress</h3>
+                    <p>Learn how to monitor and analyze your learning journey.</p>
+                </div>
+
+                <div class="tutorial-card">
+                    <div class="video-placeholder">
+                        <i class="fas fa-play-circle"></i>
+                        <span>Advanced Features</span>
+                    </div>
+                    <h3>Advanced Learning Tools</h3>
+                    <p>Discover advanced features to accelerate your learning.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="help-section">
+            <h2>Troubleshooting</h2>
+            <div class="troubleshoot-grid">
+                <div class="troubleshoot-card">
+                    <h3><i class="fas fa-exclamation-circle"></i> Common Issues</h3>
+                    <ul>
+                        <li><a href="#login">Login Problems</a></li>
+                        <li><a href="#loading">Loading Issues</a></li>
+                        <li><a href="#audio">Audio Not Working</a></li>
+                        <li><a href="#sync-issues">Sync Problems</a></li>
+                    </ul>
+                </div>
+
+                <div class="troubleshoot-card">
+                    <h3><i class="fas fa-bug"></i> Bug Reports</h3>
+                    <ul>
+                        <li><a href="#report">Report a Bug</a></li>
+                        <li><a href="#known-issues">Known Issues</a></li>
+                        <li><a href="#fixes">Recent Fixes</a></li>
+                        <li><a href="#updates">Update Notes</a></li>
+                    </ul>
+                </div>
+
+                <div class="troubleshoot-card">
+                    <h3><i class="fas fa-shield-alt"></i> Account Security</h3>
+                    <ul>
+                        <li><a href="#password">Reset Password</a></li>
+                        <li><a href="#2fa">Two-Factor Authentication</a></li>
+                        <li><a href="#security">Security Settings</a></li>
+                        <li><a href="#privacy-settings">Privacy Controls</a></li>
+                    </ul>
+                </div>
+
+                <div class="troubleshoot-card">
+                    <h3><i class="fas fa-credit-card"></i> Billing Support</h3>
+                    <ul>
+                        <li><a href="#payment">Payment Issues</a></li>
+                        <li><a href="#subscription">Subscription Management</a></li>
+                        <li><a href="#refund">Refund Policy</a></li>
+                        <li><a href="#billing">Billing History</a></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="help-section">
+            <h2>Contact Support</h2>
+            <div class="support-options">
+                <div class="support-card">
+                    <i class="fas fa-envelope"></i>
+                    <h3>Email Support</h3>
+                    <p>Get help via email within 24 hours</p>
+                    <a href="mailto:support@comiclinguist.com" class="btn btn-outline">Send Email</a>
+                </div>
+
+                <div class="support-card">
+                    <i class="fas fa-comments"></i>
+                    <h3>Live Chat</h3>
+                    <p>Chat with our support team in real-time</p>
+                    <button class="btn btn-outline">Start Chat</button>
+                </div>
+
+                <div class="support-card">
+                    <i class="fas fa-phone"></i>
+                    <h3>Phone Support</h3>
+                    <p>Call us during business hours</p>
+                    <a href="tel:+1234567890" class="btn btn-outline">Call Now</a>
+                </div>
+
+                <div class="support-card">
+                    <i class="fas fa-file-alt"></i>
+                    <h3>Submit Ticket</h3>
+                    <p>Create a support ticket for complex issues</p>
+                    <a href="contact.html" class="btn btn-outline">Create Ticket</a>
+                </div>
+            </div>
+        </section>
+
+        <div class="cta-section">
+            <h2>Can't Find What You Need?</h2>
+            <p>Our support team is ready to help you with any questions.</p>
+            <div class="cta-buttons">
+                <a href="contact.html" class="btn btn-primary">Contact Support</a>
+                <a href="faq.html" class="btn btn-outline">View FAQs</a>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container footer-container">
+            <div class="footer-col">
+                <h3>Comic Linguist</h3>
+                <p>Learn English through engaging comic books...</p>
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../index.html#comics">Comics</a></li>
+                    <li><a href="levels.html">Levels</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Resources</h3>
+                <ul>
+                    <li><a href="how-it-works.html">How It Works</a></li>
+                    <li><a href="learning-tips.html">Learning Tips</a></li>
+                    <li><a href="grammar-guides.html">Grammar Guides</a></li>
+                    <li><a href="vocabulary-lists.html">Vocabulary Lists</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Support</h3>
+                <ul>
+                    <li><a href="faq.html">FAQs</a></li>
+                    <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                    <li><a href="terms-of-service.html">Terms of Service</a></li>
+                    <li><a href="help-center.html">Help Center</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>© <span id="copyright-year">2025</span> Comic Linguist. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="../script.js"></script>
+</body>
+
+</html>

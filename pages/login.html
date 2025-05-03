@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Comic Linguist</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        /* Updated Login Page Styles */
+        .login-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: calc(100vh - 300px);
+            padding: 2rem;
+            background: linear-gradient(135deg, var(--bg-primary), var(--bg-secondary));
+        }
+
+        .login-box {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            padding: 3rem;
+            max-width: 500px;
+            width: 100%;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .login-options {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+        }
+
+        .login-form,
+        .guest-access {
+            background: rgba(255, 255, 255, 0.85);
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            flex: 1;
+            min-width: 280px;
+        }
+
+        .login-form:hover,
+        .guest-access:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+        }
+
+        .login-title {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.15);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+            text-align: left;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            background: #fff;
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px var(--primary-translucent);
+        }
+
+        .btn-container {
+            margin-top: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .btn {
+            padding: 0.75rem 1.5rem;
+            font-size: 1.1rem;
+            border-radius: 8px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: #fff;
+            border: none;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary-translucent);
+            color: var(--primary-dark);
+        }
+
+        .divider {
+            position: relative;
+            text-align: center;
+            margin: 2rem 0;
+            color: var(--text-muted);
+        }
+
+        .divider::before,
+        .divider::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            width: 40%;
+            height: 1px;
+            background: rgba(0, 0, 0, 0.1);
+        }
+
+        .divider::before {
+            left: 0;
+        }
+
+        .divider::after {
+            right: 0;
+        }
+
+        .error-message,
+        .success-message {
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            display: none;
+            font-weight: 600;
+        }
+
+        .error-message {
+            color: var(--danger);
+            background: rgba(239, 68, 68, 0.15);
+            border: 1px solid rgba(239, 68, 68, 0.3);
+        }
+
+        .success-message {
+            color: var(--success);
+            background: rgba(16, 185, 129, 0.15);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .login-box {
+            padding: 2rem;
+            }
+            .login-options {
+            flex-direction: column;
+            gap: 1.5rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .login-title {
+            font-size: 2rem;
+            }
+            .form-group {
+            margin-bottom: 1rem;
+            }
+            .form-group input {
+            padding: 0.75rem;
+            font-size: 1rem;
+            }
+            .btn {
+            font-size: 1rem;
+            }
+            .btn-container {
+            gap: 0.75rem;
+            }
+            .divider {
+            margin: 1.5rem 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <a href="../index.html" class="logo">
+                <i class="fas fa-book-open"></i>
+                <span>Comic Linguist</span>
+            </a>
+        </div>
+    </header>
+
+    <!-- Login Container -->
+    <main class="login-container">
+        <div class="login-box">
+            <h1 class="login-title">Welcome to Comic Linguist</h1>
+            <div class="error-message" id="errorMessage"></div>
+            <div class="success-message" id="successMessage"></div>
+            
+            <div class="login-options">
+                <div class="login-form">
+                    <h2>Member Login</h2>
+                    <form id="loginForm">
+                        <div class="form-group">
+                            <label for="username">Username</label>
+                            <input type="text" id="username" name="username" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="pin">Secret PIN</label>
+                            <input type="password" id="pin" name="pin" required minlength="6" maxlength="6" pattern="[0-9]{6}">
+                        </div>
+                        <div class="btn-container">
+                            <button type="submit" class="btn btn-primary">Login</button>
+                            <a href="subscription.html" class="btn btn-outline">Get Subscription</a>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="divider">OR</div>
+
+                <div class="guest-access">
+                    <h2>Continue as Guest</h2>
+                    <p>Access free comics without logging in</p>
+                    <div class="btn-container">
+                        <button id="guestAccessBtn" class="btn btn-outline">Continue as Guest</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-container">
+            <div class="footer-col">
+                <h3>Comic Linguist</h3>
+                <p>Learn English through engaging comic books...</p>
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../index.html#comics">Comics</a></li>
+                    <li><a href="levels.html">Levels</a></li>
+                    <li><a href="about.html">About</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Resources</h3>
+                <ul>
+                    <li><a href="how-it-works.html">How It Works</a></li>
+                    <li><a href="learning-tips.html">Learning Tips</a></li>
+                    <li><a href="vocabulary-lists.html">Vocabulary Lists</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>© <span id="copyright-year">2025</span> Comic Linguist. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="../script.js"></script>
+    <script src="../js/auth.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const auth = new AuthManager();
+            
+            const loginForm = document.getElementById('loginForm');
+            const guestAccessBtn = document.getElementById('guestAccessBtn');
+            const errorMessage = document.getElementById('errorMessage');
+            const successMessage = document.getElementById('successMessage');
+            const formInputs = loginForm.querySelectorAll('input');
+
+            // Redirect if already logged in
+            if (auth.currentUser) {
+                window.location.href = auth.isAuthenticated() ? 'profile.html' : 'subscription.html';
+                return;
+            }
+
+            // Clear any existing messages
+            function clearMessages() {
+                errorMessage.style.display = 'none';
+                successMessage.style.display = 'none';
+            }
+
+            // Show error with auto-hide
+            function showError(message) {
+                errorMessage.textContent = message;
+                errorMessage.style.display = 'block';
+                successMessage.style.display = 'none';
+                setTimeout(() => {
+                    errorMessage.style.display = 'none';
+                }, 5000);
+            }
+
+            // Show success message
+            function showSuccess(message) {
+                successMessage.textContent = message;
+                successMessage.style.display = 'block';
+                errorMessage.style.display = 'none';
+            }
+
+            // Disable/enable form during submission
+            function setFormDisabled(disabled) {
+                formInputs.forEach(input => input.disabled = disabled);
+                loginForm.querySelector('button[type="submit"]').disabled = disabled;
+            }
+
+            loginForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                clearMessages();
+                setFormDisabled(true);
+
+                const username = document.getElementById('username').value.trim();
+                const pin = document.getElementById('pin').value.trim();
+
+                if (!username || !pin) {
+                    showError('Please fill in all fields');
+                    setFormDisabled(false);
+                    return;
+                }
+
+                const result = await auth.login(username, pin);
+                if (result.success) {
+                    showSuccess('Login successful!');
+                    setTimeout(() => {
+                        window.location.href = 'profile.html';
+                    }, 1000);
+                } else {
+                    showError(result.error);
+                    setFormDisabled(false);
+                }
+            });
+
+            guestAccessBtn.addEventListener('click', () => {
+                auth.setGuest();
+                window.location.href = '../index.html';
+            });
+
+            // Clear messages when user starts typing
+            formInputs.forEach(input => {
+                input.addEventListener('input', clearMessages);
+            });
+
+            // Listen for auth events
+            auth.on('login', ({ username }) => {
+                showSuccess(`Welcome back, ${username}!`);
+            });
+
+            auth.on('logout', () => {
+                window.location.href = '../index.html';
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comic Linguist - Image Viewer</title>
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Link to External CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <a href="index.html" class="logo"> <i class="fas fa-book-open"></i> <span>Comic Linguist</span> </a>
+            <button class="mobile-menu-btn" aria-label="Toggle menu" aria-expanded="false"> <i class="fas fa-bars"></i> </button>
+            <nav>
+                <ul>
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="#comics">Comics</a></li>
+                    <li><a href="pages/levels.html">Levels</a></li>
+                    <li><a href="pages/about.html">About</a></li>
+                    <li><a href="pages/contact.html">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="nav-actions">
+                <div class="search-bar">
+                    <i class="fas fa-search"></i>
+                    <input type="search" id="comicSearchInput" placeholder="Search comics..." aria-label="Search comics">
+                </div>
+                <a href="pages/profile.html" class="profile-link" id="profileLink" style="display: none;">
+                    <i class="fas fa-user"></i>
+                </a>
+                <a href="pages/login.html" class="login-link" id="loginLink">
+                    <i class="fas fa-sign-in-alt"></i>
+                </a>
+                <button class="theme-toggle" aria-label="Switch to light mode">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Learn English Through Comics</h1>
+            <p>Enhance your English skills with our collection of specially curated comic books designed for language learners. Each comic comes with a vocabulary assistant to help you understand new words and expressions.</p>
+            <div class="hero-buttons"> <a href="#comics" class="btn btn-primary">Explore Comics</a> <a href="pages/how-it-works.html" class="btn btn-outline">How It Works</a> </div>
+        </div>
+    </section>
+
+    <!-- Comics Section -->
+    <section id="comics" class="comics-section">
+        <div class="container">
+            <h2 class="section-title">Featured Comics</h2>
+            <!-- Comic cards will be inserted here by JavaScript -->
+            <div class="comics-container" id="comicsList">
+                <!-- Example: <div class="comic-card">...</div> -->
+            </div>
+            <p id="noResultsMessage" style="text-align: center; display: none; margin-top: 2rem; color: var(--gray-600);">No comics found matching your search.</p>
+            <p id="loadErrorMessage" style="text-align: center; display: none; margin-top: 2rem; color: var(--danger);">Could not load comic data. Please try again later.</p>
+            
+            <!-- Updated Pagination Controls -->
+            <div class="pagination-container" id="comicsPagination">
+                <button class="pagination-btn" id="prevPageBtn" aria-label="Previous page" disabled>
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <span class="pagination-info">
+                    Page <span id="currentPage">1</span> of <span id="totalPages">1</span>
+                </span>
+                <button class="pagination-btn" id="nextPageBtn" aria-label="Next page" disabled>
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-container">
+            <div class="footer-col"> <h3>Comic Linguist</h3> <p>Learn English through engaging comic books...</p> <div class="social-links"> <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a> <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a> <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a> <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a> </div> </div>
+            <div class="footer-col"> <h3>Quick Links</h3> <ul> <li><a href="index.html">Home</a></li> <li><a href="#comics">Comics</a></li> <li><a href="pages/levels.html">Levels</a></li> <li><a href="pages/about.html">About</a></li> <li><a href="pages/contact.html">Contact</a></li> </ul> </div>
+            <div class="footer-col"> <h3>Resources</h3> <ul> <li><a href="pages/how-it-works.html">How It Works</a></li> <li><a href="pages/learning-tips.html">Learning Tips</a></li> <li><a href="pages/grammar-guides.html">Grammar Guides</a></li> <li><a href="pages/vocabulary-lists.html">Vocabulary Lists</a></li> </ul> </div>
+            <div class="footer-col"> <h3>Support</h3> <ul> <li><a href="pages/faq.html">FAQs</a></li> <li><a href="pages/privacy-policy.html">Privacy Policy</a></li> <li><a href="pages/terms-of-service.html">Terms of Service</a></li> <li><a href="pages/help-center.html">Help Center</a></li> </ul> </div>
+        </div>
+        <div class="copyright"> <p>© <span id="copyright-year">2025</span> Comic Linguist. All rights reserved.</p> </div>
+    </footer>
+
+    <!-- Vocabulary Assistant Modal -->
+    <div class="vocab-modal" id="vocabModal" role="dialog" aria-modal="true" aria-labelledby="vocabTitle">
+        <div class="vocab-content" role="document">
+            <button class="vocab-close" aria-label="Close vocabulary assistant"> <i class="fas fa-times"></i> </button>
+            <h2 class="vocab-title" id="vocabTitle">Vocabulary Assistant</h2>
+            <ul class="vocab-list" id="vocabList">
+                <li class="vocab-item">Loading vocabulary...</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Image Viewer Modal -->
+    <div class="image-viewer-modal" id="imageViewerModal" role="dialog" aria-modal="true" aria-labelledby="viewerTitleLabel">
+        <button class="viewer-close" aria-label="Close comic viewer"> <i class="fas fa-times"></i> </button>
+        <div class="viewer-container" role="document">
+            <div class="viewer-header">
+                <div class="viewer-title" id="viewerTitleLabel">Comic Title</div>
+                <div class="viewer-controls">
+                    <button class="viewer-control-btn" id="imagePrevPage" aria-label="Previous Page" disabled> <i class="fas fa-chevron-left"></i> </button>
+                    <span id="imagePageInfo" aria-live="polite">Page ? of ?</span>
+                    <button class="viewer-control-btn" id="imageNextPage" aria-label="Next Page" disabled> <i class="fas fa-chevron-right"></i> </button>
+                    <button class="viewer-control-btn" id="imageZoomOut" aria-label="Zoom Out" disabled> <i class="fas fa-search-minus"></i> </button>
+                    <button class="viewer-control-btn" id="imageZoomIn" aria-label="Zoom In" disabled> <i class="fas fa-search-plus"></i> </button>
+                    <button class="viewer-control-btn" id="imageToolbarVocabBtn" aria-label="Open Vocabulary" disabled> <i class="fas fa-book"></i> </button>
+                    <button class="viewer-control-btn" id="imageFullscreenBtn" aria-label="Enter Fullscreen" disabled> <i class="fas fa-expand"></i> </button>
+                </div>
+            </div>
+            <div class="viewer-content">
+                <div class="loader-inline" id="imageLoaderInline">
+                    <div class="spinner"></div>
+                    <span class="sr-only">Loading image...</span>
+                </div>
+                <div class="image-wrapper"> <!-- Added Wrapper -->
+                    <img id="comicImageViewer" src="" alt="Comic Page" style="transform: scale(1);">
+                </div>
+                <div id="image-load-error" style="display: none;">Failed to load image.</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Subscription Login Modal -->
+    <div class="subscription-modal" id="subscriptionModal" role="dialog" aria-modal="true" aria-labelledby="subscriptionTitle">
+        <div class="subscription-content" role="document">
+            <button class="subscription-close" aria-label="Close subscription login"> <i class="fas fa-times"></i> </button>
+            <h2 class="subscription-title" id="subscriptionTitle">Access Premium Comic</h2>
+            <div class="subscription-options">
+                <div class="login-section">
+                    <h3>Subscriber Login</h3>
+                    <form id="subscriptionLoginForm">
+                        <div class="form-group">
+                            <label for="username">Username</label>
+                            <input type="text" id="username" name="username" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="pin">PIN</label>
+                            <input type="password" id="pin" name="pin" required minlength="6" maxlength="6">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Login</button>
+                    </form>
+                </div>
+                <div class="guest-section">
+                    <h3>Continue as Guest</h3>
+                    <p>Access free comics without logging in</p>
+                    <button id="guestAccessBtn" class="btn btn-outline">Continue as Guest</button>
+                </div> <!-- Added missing closing div -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Link to External JavaScript -->
+    <script src="js/auth.js"></script>
+    <script src="script.js"></script>
+    <script>
+        const auth = new AuthManager();
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            const profileLink = document.getElementById('profileLink');
+            const loginLink = document.getElementById('loginLink');
+
+            // Update navigation based on auth state
+            if (auth.currentUser) {
+                profileLink.style.display = 'flex';
+                loginLink.style.display = 'none';
+            } else {
+                profileLink.style.display = 'none';
+                loginLink.style.display = 'flex';
+            }
+        });
+    </script>
+</body>
+</html>

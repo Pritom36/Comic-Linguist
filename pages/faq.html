@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQs - Comic Linguist</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* FAQ Page Content */
+        .page-content {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .page-content h1 {
+            text-align: center;
+            color: #e44d26;
+            margin-bottom: 20px;
+        }
+
+        /* Search Section */
+        .search-section {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+
+        .faq-search {
+            display: flex;
+            align-items: center;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 5px 10px;
+            width: 70%;
+            max-width: 500px;
+        }
+
+        .faq-search i {
+            color: #777;
+            margin-right: 10px;
+        }
+
+        .faq-search input[type="search"] {
+            border: none;
+            outline: none;
+            flex-grow: 1;
+            font-size: 1rem;
+            color: #555;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            margin-bottom: 40px;
+        }
+
+        .faq-section h2 {
+            color: #e44d26;
+            border-bottom: 2px solid #e44d26;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        .faq-list {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .faq-item {
+            border: 1px solid #ddd;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            background-color: #f9f9f9;
+            color: #333;
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .faq-question:hover {
+            background-color: #eee;
+        }
+
+        .faq-question h3 {
+            margin: 0;
+            font-size: 1.1rem;
+        }
+
+        .toggle-answer {
+            background: none;
+            border: none;
+            color: #e44d26;
+            cursor: pointer;
+            font-size: 1.2rem;
+            padding: 0;
+            transition: transform 0.3s ease;
+        }
+
+        .toggle-answer i {
+            transform: rotate(0deg);
+        }
+
+        .toggle-answer[aria-expanded="true"] i {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            padding: 0 15px;
+            background-color: #fff;
+            display: none;
+        }
+
+        .faq-answer p, .faq-answer ul, .faq-answer ol {
+            margin-bottom: 15px;
+        }
+
+        .faq-answer ul, .faq-answer ol {
+            padding-left: 20px;
+        }
+
+        .faq-answer ul li {
+            list-style-type: disc;
+        }
+
+        .faq-answer ol li {
+            list-style-type: decimal;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            text-align: center;
+            padding: 40px 20px;
+            background-color: #f0f0f0;
+            border-radius: 8px;
+        }
+
+        .cta-section h2 {
+            color: #e44d26;
+            margin-bottom: 15px;
+        }
+
+        .cta-section p {
+            font-size: 1.1rem;
+            margin-bottom: 25px;
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 1rem;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .btn-primary {
+            background-color: #e44d26;
+            color: #fff;
+            border: 1px solid #e44d26;
+        }
+
+        .btn-primary:hover {
+            background-color: #c63e1f;
+            border-color: #c63e1f;
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 1px solid #e44d26;
+            color: #e44d26;
+        }
+
+        .btn-outline:hover {
+            background-color: #e44d26;
+            color: #fff;
+        }
+
+        /* Footer Styles */
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        .footer-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .footer-col {
+            flex: 1;
+            margin-bottom: 20px;
+            min-width: 200px;
+        }
+
+        .footer-col h3 {
+            color: #e44d26;
+            margin-bottom: 15px;
+        }
+
+        .footer-col p {
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+
+        .social-links {
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            display: inline-block;
+            margin: 0 10px;
+            color: #fff;
+            font-size: 1.2rem;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: #e44d26;
+        }
+
+        .footer-col ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 8px;
+        }
+
+        .footer-col ul li a {
+            color: #ddd;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-col ul li a:hover {
+            color: #fff;
+        }
+
+        .copyright {
+            margin-top: 30px;
+            font-size: 0.8rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+
+            .page-content {
+                padding: 20px;
+            }
+
+            .faq-search {
+                width: 90%;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                width: 100%;
+                text-align: center;
+            }
+
+            .footer-container {
+                flex-direction: column;
+                text-align: left;
+            }
+
+            .footer-col {
+                min-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main class="container page-content">
+        <h1>Frequently Asked Questions</h1>
+
+        <div class="search-section">
+            <div class="faq-search">
+                <i class="fas fa-search"></i>
+                <input type="search" placeholder="Search FAQs..." aria-label="Search FAQs">
+            </div>
+        </div>
+
+        <section class="faq-section">
+            <h2>Getting Started</h2>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>How do I start learning with Comic Linguist?</h3>
+                        <button class="toggle-answer" aria-label="Toggle answer">
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                    </div>
+                    <div class="faq-answer">
+                        <p>To get started:</p>
+                        <ol>
+                            <li>Take our level assessment test</li>
+                            <li>Choose comics that match your level</li>
+                            <li>Start reading and using our interactive tools</li>
+                            <li>Track your progress and practice regularly</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>What level should I start at?</h3>
+                        <button class="toggle-answer" aria-label="Toggle answer">
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We recommend taking our quick placement test to determine your starting level. The test evaluates your:</p>
+                        <ul>
+                            <li>Reading comprehension</li>
+                            <li>Vocabulary knowledge</li>
+                            <li>Grammar understanding</li>
+                            <li>Language comfort level</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="faq-section">
+            <h2>Using Comic Linguist</h2>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>How do the interactive features work?</h3>
+                        <button class="toggle-answer" aria-label="Toggle answer">
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Our interactive features include:</p>
+                        <ul>
+                            <li>Click-to-translate words</li>
+                            <li>Audio pronunciation</li>
+                            <li>Grammar explanations</li>
+                            <li>Practice exercises</li>
+                            <li>Progress tracking</li>
+                        </ul>
+                        <p>Simply click or tap on any word or phrase to access these features.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Can I save my progress?</h3>
+                        <button class="toggle-answer" aria-label="Toggle answer">
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes! Comic Linguist automatically saves your:</p>
+                        <ul>
+                            <li>Reading progress</li>
+                            <li>Vocabulary lists</li>
+                            <li>Exercise results</li>
+                            <li>Achievement badges</li>
+                        </ul>
+                        <p>Your progress syncs across all your devices when you're logged in.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="faq-section">
+            <h2>Comics and Content</h2>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>What types of comics are available?</h3>
+                        <button class="toggle-answer" aria-label="Toggle answer">
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We offer a wide variety of genres:</p>
+                        <ul>
+                            <li>Adventure</li>
+                            <li>Superhero</li>
+                            <li>Slice of Life</li>
+                            <li>Mystery</li>
+                            <li>Fantasy</li>
+                            <li>Educational</li>
+                        </ul>
+                        <p>All comics are carefully selected and adapted for language learners.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>How often is new content added?</h3>
+                        <button class="toggle-answer" aria-label="Toggle answer">
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We regularly update our content:</p>
+                        <ul>
+                            <li>New comics added weekly</li>
+                            <li>Monthly vocabulary updates</li>
+                            <li>Regular grammar lessons</li>
+                            <li>New practice exercises</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="faq-section">
+            <h2>Technical Support</h2>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Which devices can I use?</h3>
+                        <button class="toggle-answer" aria-label="Toggle answer">
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Comic Linguist works on:</p>
+                        <ul>
+                            <li>Desktop computers</li>
+                            <li>Laptops</li>
+                            <li>Tablets</li>
+                            <li>Smartphones</li>
+                        </ul>
+                        <p>Our responsive design ensures a great experience on any device.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>How do I report issues?</h3>
+                        <button class="toggle-answer" aria-label="Toggle answer">
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                    </div>
+                    <div class="faq-answer">
+                        <p>To report issues:</p>
+                        <ol>
+                            <li>Visit our Help Center</li>
+                            <li>Use the contact form</li>
+                            <li>Email support@comiclinguist.com</li>
+                            <li>Use in-app reporting tools</li>
+                        </ol>
+                        <p>Our support team typically responds within 24 hours.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="cta-section">
+            <h2>Still Have Questions?</h2>
+            <p>We're here to help! Get in touch with our support team.</p>
+            <div class="cta-buttons">
+                <a href="contact.html" class="btn btn-primary">Contact Support</a>
+                <a href="help-center.html" class="btn btn-outline">Visit Help Center</a>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container footer-container">
+            <div class="footer-col">
+                <h3>Comic Linguist</h3>
+                <p>Learn English through engaging comic books...</p>
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../index.html#comics">Comics</a></li>
+                    <li><a href="levels.html">Levels</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Resources</h3>
+                <ul>
+                    <li><a href="how-it-works.html">How It Works</a></li>
+                    <li><a href="learning-tips.html">Learning Tips</a></li>
+                    <li><a href="grammar-guides.html">Grammar Guides</a></li>
+                    <li><a href="vocabulary-lists.html">Vocabulary Lists</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Support</h3>
+                <ul>
+                    <li><a href="faq.html">FAQs</a></li>
+                    <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                    <li><a href="terms-of-service.html">Terms of Service</a></li>
+                    <li><a href="help-center.html">Help Center</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>© <span id="copyright-year">2025</span> Comic Linguist. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqItems = document.querySelectorAll('.faq-item');
+
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                const answer = item.querySelector('.faq-answer');
+                const toggleButton = item.querySelector('.toggle-answer');
+
+                question.addEventListener('click', () => {
+                    const expanded = toggleButton.getAttribute('aria-expanded') === 'true' || false;
+                    toggleButton.setAttribute('aria-expanded', !expanded);
+                    answer.style.display = expanded ? 'none' : 'block';
+                });
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grammar Guides - Comic Linguist</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+            padding: 0 20px;
+        }
+
+        .page-content {
+            padding: 20px 0;
+        }
+
+        .feature-section {
+            background-color: #fff;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-section h2 {
+            color: #e44d26;
+            border-bottom: 2px solid #e44d26;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        .grammar-category h3 {
+            color: #333;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 5px;
+            margin-bottom: 15px;
+        }
+
+        .grammar-box {
+            margin-bottom: 20px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            background-color: #f9f9f9;
+        }
+
+        .grammar-box h4 {
+            color: #555;
+            margin-bottom: 10px;
+        }
+
+        .example-box {
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #eee;
+            border-radius: 4px;
+        }
+
+        .example-box ul {
+            padding-left: 20px;
+        }
+
+        .example-box li {
+            margin-bottom: 5px;
+        }
+
+        .cta-section {
+            background-color: #333;
+            color: #fff;
+            padding: 30px 0;
+            text-align: center;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .cta-section h2 {
+            margin-bottom: 20px;
+        }
+
+        .cta-buttons a {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 0 10px;
+            border-radius: 5px;
+            text-decoration: none;
+            color: #fff;
+            background-color: #e44d26;
+        }
+
+        .cta-buttons a.btn-outline {
+            background-color: transparent;
+            border: 2px solid #fff;
+            color: #fff;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        /* Flexbox for responsiveness */
+        .feature-content, .grammar-category {
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Media queries for responsiveness */
+        @media (min-width: 768px) {
+            .container {
+                width: 70%;
+            }
+
+            .feature-content {
+                flex-direction: row;
+            }
+
+            .feature-text {
+                width: 100%;
+            }
+
+            .grammar-category {
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: space-between;
+            }
+
+            .grammar-box {
+                width: 48%; /* Adjust for two boxes per row */
+                margin-bottom: 15px;
+            }
+        }
+
+        @media (min-width: 992px) {
+            .container {
+                width: 60%;
+            }
+
+            .grammar-box {
+                width: 30%; /* Adjust for three boxes per row */
+            }
+        }
+    </style>
+</head>
+<body>
+    <main class="container page-content">
+        <h1>Grammar Guides</h1>
+
+        <section class="feature-section">
+            <h2>Basic Grammar</h2>
+            <div class="feature-content">
+                <div class="feature-text">
+                    <div class="grammar-category">
+                        <h3><i class="fas fa-pencil-alt"></i> Parts of Speech</h3>
+                        <div class="grammar-box">
+                            <h4>Nouns</h4>
+                            <p>Words that name people, places, things, or ideas.</p>
+                            <div class="example-box">
+                                <p><strong>Examples from Comics:</strong></p>
+                                <ul>
+                                    <li>"hero" - person</li>
+                                    <li>"city" - place</li>
+                                    <li>"cape" - thing</li>
+                                    <li>"courage" - idea</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="grammar-box">
+                            <h4>Verbs</h4>
+                            <p>Words that show action or state of being.</p>
+                            <div class="example-box">
+                                <p><strong>Examples from Comics:</strong></p>
+                                <ul>
+                                    <li>"fight" - action</li>
+                                    <li>"run" - action</li>
+                                    <li>"is" - state</li>
+                                    <li>"become" - change</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="grammar-box">
+                            <h4>Adjectives</h4>
+                            <p>Words that describe nouns.</p>
+                            <div class="example-box">
+                                <p><strong>Examples from Comics:</strong></p>
+                                <ul>
+                                    <li>"brave" - describes character</li>
+                                    <li>"dark" - describes setting</li>
+                                    <li>"powerful" - describes ability</li>
+                                    <li>"mysterious" - describes situation</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="feature-section">
+            <h2>Sentence Structure</h2>
+            <div class="feature-content">
+                <div class="feature-text">
+                    <div class="grammar-category">
+                        <h3><i class="fas fa-project-diagram"></i> Basic Sentence Patterns</h3>
+                        <div class="grammar-box">
+                            <h4>Subject + Verb</h4>
+                            <div class="example-box">
+                                <p><strong>Examples:</strong></p>
+                                <ul>
+                                    <li>"Heroes fight."</li>
+                                    <li>"She runs."</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="grammar-box">
+                            <h4>Subject + Verb + Object</h4>
+                            <div class="example-box">
+                                <p><strong>Examples:</strong></p>
+                                <ul>
+                                    <li>"Heroes save people."</li>
+                                    <li>"Villains attack cities."</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="grammar-box">
+                            <h4>Subject + Verb + Adjective</h4>
+                            <div class="example-box">
+                                <p><strong>Examples:</strong></p>
+                                <ul>
+                                    <li>"He becomes strong."</li>
+                                    <li>"The story feels exciting."</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="feature-section">
+            <h2>Verb Tenses</h2>
+            <div class="feature-content">
+                <div class="feature-text">
+                    <div class="grammar-category">
+                        <h3><i class="fas fa-clock"></i> Present Tense</h3>
+                        <div class="grammar-box">
+                            <h4>Simple Present</h4>
+                            <div class="example-box">
+                                <p><strong>Usage:</strong> Regular actions, facts</p>
+                                <ul>
+                                    <li>"Heroes protect the city."</li>
+                                    <li>"She trains every day."</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="grammar-box">
+                            <h4>Present Continuous</h4>
+                            <div class="example-box">
+                                <p><strong>Usage:</strong> Actions happening now</p>
+                                <ul>
+                                    <li>"He is fighting the villain."</li>
+                                    <li>"They are running away."</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grammar-category">
+                        <h3><i class="fas fa-history"></i> Past Tense</h3>
+                        <div class="grammar-box">
+                            <h4>Simple Past</h4>
+                            <div class="example-box">
+                                <p><strong>Usage:</strong> Completed actions</p>
+                                <ul>
+                                    <li>"The hero saved the day."</li>
+                                    <li>"She defeated the monster."</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="grammar-box">
+                            <h4>Past Continuous</h4>
+                            <div class="example-box">
+                                <p><strong>Usage:</strong> Actions in progress in the past</p>
+                                <ul>
+                                    <li>"He was training when it happened."</li>
+                                    <li>"They were searching for clues."</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="feature-section">
+            <h2>Common Grammar Patterns</h2>
+            <div class="feature-content">
+                <div class="feature-text">
+                    <div class="grammar-category">
+                        <h3><i class="fas fa-comment-dots"></i> Questions</h3>
+                        <div class="grammar-box">
+                            <h4>Yes/No Questions</h4>
+                            <div class="example-box">
+                                <ul>
+                                    <li>"Is he a hero?"</li>
+                                    <li>"Can she fly?"</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="grammar-box">
+                            <h4>Wh- Questions</h4>
+                            <div class="example-box">
+                                <ul>
+                                    <li>"What is he doing?"</li>
+                                    <li>"Where did they go?"</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grammar-category">
+                        <h3><i class="fas fa-exclamation-circle"></i> Exclamations</h3>
+                        <div class="grammar-box">
+                            <div class="example-box">
+                                <ul>
+                                    <li>"What a powerful attack!"</li>
+                                    <li>"How brave he is!"</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="feature-section">
+            <h2>Practice Exercises</h2>
+            <div class="feature-content">
+                <div class="feature-text">
+                    <p>Test your understanding with our interactive exercises:</p>
+                    <div class="exercise-links">
+                        <a href="#basic" class="btn btn-outline">Basic Grammar</a>
+                        <a href="#intermediate" class="btn btn-outline">Intermediate Level</a>
+                        <a href="#advanced" class="btn btn-outline">Advanced Practice</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="cta-section">
+            <h2>Ready to Practice?</h2>
+            <p>Apply these grammar rules while reading our comics!</p>
+            <div class="cta-buttons">
+                <a href="../index.html#comics" class="btn btn-primary">Start Reading</a>
+                <a href="vocabulary-lists.html" class="btn btn-outline">Build Vocabulary</a>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container footer-container">
+            <p>© <span id="copyright-year">2025</span> Comic Linguist. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

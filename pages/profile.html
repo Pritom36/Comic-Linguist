@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile - Comic Linguist</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        .profile-container {
+            min-height: calc(100vh - 300px);
+            padding: 2rem;
+        }
+
+        .profile-header {
+            background: var(--bg-secondary);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-lg);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .profile-avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+        }
+
+        .profile-info {
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .profile-name {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+
+        .subscription-status {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .status-active {
+            background: rgba(16, 185, 129, 0.1);
+            color: var(--success);
+        }
+
+        .status-expired {
+            background: rgba(239, 68, 68, 0.1);
+            color: var(--danger);
+        }
+
+        .profile-sections {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .profile-section {
+            background: var(--bg-secondary);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-md);
+            padding: 1.5rem;
+            border: 1px solid var(--border-color);
+        }
+
+        .section-title {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--border-color);
+            color: var(--text-primary);
+        }
+
+        .subscription-details {
+            display: grid;
+            gap: 1rem;
+        }
+
+        .detail-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .detail-item:last-child {
+            border-bottom: none;
+        }
+
+        .detail-label {
+            color: var(--text-muted);
+        }
+
+        .detail-value {
+            color: var(--text-primary);
+            font-weight: 500;
+        }
+
+        .reading-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+            gap: 1rem;
+        }
+
+        .stat-card {
+            background: var(--bg-primary);
+            padding: 1rem;
+            border-radius: var(--border-radius);
+            text-align: center;
+            border: 1px solid var(--border-color);
+        }
+
+        .stat-value {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .recent-activity {
+            list-style: none;
+            padding: 0;
+        }
+
+        .activity-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .activity-item:last-child {
+            border-bottom: none;
+        }
+
+        .activity-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--bg-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+        }
+
+        .activity-details {
+            flex: 1;
+        }
+
+        .activity-title {
+            color: var(--text-primary);
+            margin-bottom: 0.25rem;
+        }
+
+        .activity-time {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .btn-container {
+            margin-top: 1.5rem;
+            display: flex;
+            gap: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .profile-header {
+                text-align: center;
+                justify-content: center;
+            }
+
+            .btn-container {
+                flex-direction: column;
+            }
+
+            .profile-avatar {
+                margin: 0 auto;
+            }
+
+            .profile-info {
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .profile-container {
+                padding: 1rem;
+            }
+
+            .profile-header {
+                padding: 1.5rem;
+            }
+
+            .profile-sections {
+                grid-template-columns: 1fr;
+            }
+
+            .stat-card {
+                padding: 0.75rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <a href="../index.html" class="logo">
+                <i class="fas fa-book-open"></i>
+                <span>Comic Linguist</span>
+            </a>
+            <button class="mobile-menu-btn" aria-label="Toggle menu" aria-expanded="false">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav>
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../index.html#comics">Comics</a></li>
+                    <li><a href="levels.html">Levels</a></li>
+                    <li><a href="about.html">About</a></li>
+                </ul>
+            </nav>
+            <div class="nav-actions">
+                <button class="theme-toggle" aria-label="Switch theme">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Profile Container -->
+    <main class="container profile-container">
+        <div class="profile-header">
+            <div class="profile-avatar">
+                <i class="fas fa-user"></i>
+            </div>
+            <div class="profile-info">
+                <h1 class="profile-name" id="profileUsername">Loading...</h1>
+                <div class="subscription-status status-active" id="subscriptionStatus">Active Subscription</div>
+                <div class="btn-container">
+                    <a href="subscription.html" class="btn btn-primary">Manage Subscription</a>
+                    <button id="logoutBtn" class="btn btn-outline">Logout</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="profile-sections">
+            <div class="profile-section">
+                <h2 class="section-title">Subscription Details</h2>
+                <div class="subscription-details">
+                    <div class="detail-item">
+                        <span class="detail-label">Plan</span>
+                        <span class="detail-value" id="subscriptionPlan">Loading...</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Status</span>
+                        <span class="detail-value" id="subscriptionStatusDetail">Loading...</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Expiry Date</span>
+                        <span class="detail-value" id="subscriptionExpiry">Loading...</span>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+
+            
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-container">
+            <div class="footer-col">
+                <h3>Comic Linguist</h3>
+                <p>Learn English through engaging comic books...</p>
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../index.html#comics">Comics</a></li>
+                    <li><a href="levels.html">Levels</a></li>
+                    <li><a href="about.html">About</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Resources</h3>
+                <ul>
+                    <li><a href="how-it-works.html">How It Works</a></li>
+                    <li><a href="learning-tips.html">Learning Tips</a></li>
+                    <li><a href="vocabulary-lists.html">Vocabulary Lists</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>© <span id="copyright-year">2025</span> Comic Linguist. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="../js/auth.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const auth = new AuthManager();
+            
+            // Check authentication and redirect if needed
+            if (auth.redirectIfNotAuthenticated()) {
+                return;
+            }
+
+            // Get UI elements
+            const profileUsername = document.getElementById('profileUsername');
+            const subscriptionStatus = document.getElementById('subscriptionStatus');
+            const subscriptionPlan = document.getElementById('subscriptionPlan');
+            const subscriptionStatusDetail = document.getElementById('subscriptionStatusDetail');
+            const subscriptionExpiry = document.getElementById('subscriptionExpiry');
+            const logoutBtn = document.getElementById('logoutBtn');
+
+            // Update profile information
+            function updateProfileUI() {
+                const profileData = auth.getProfileData();
+                if (!profileData) {
+                    window.location.href = 'login.html';
+                    return;
+                }
+
+                profileUsername.textContent = profileData.username;
+                subscriptionPlan.textContent = profileData.subscriptionType;
+                subscriptionStatusDetail.textContent = profileData.status;
+
+                if (profileData.expiryDate) {
+                    const expiryDate = new Date(profileData.expiryDate);
+                    subscriptionExpiry.textContent = expiryDate.toLocaleDateString();
+                    
+                    // Update subscription status
+                    if (profileData.isExpired) {
+                        subscriptionStatus.textContent = 'Subscription Expired';
+                        subscriptionStatus.className = 'subscription-status status-expired';
+                    } else {
+                        // Calculate days remaining
+                        const daysRemaining = Math.ceil((expiryDate - new Date()) / (1000 * 60 * 60 * 24));
+                        subscriptionStatus.textContent = `Active (${daysRemaining} days remaining)`;
+                        subscriptionStatus.className = 'subscription-status status-active';
+                    }
+                } else {
+                    subscriptionExpiry.textContent = 'N/A';
+                    subscriptionStatus.textContent = 'Free Access';
+                    subscriptionStatus.className = 'subscription-status';
+                }
+            }
+
+            // Initialize profile
+            updateProfileUI();
+
+            // Handle logout
+            logoutBtn.addEventListener('click', () => {
+                auth.logout();
+                window.location.href = '../index.html';
+            });
+
+            // Listen for auth events
+            auth.on('logout', () => {
+                window.location.href = 'login.html';
+            });
+
+            // Update UI when storage changes
+            window.addEventListener('storage', (e) => {
+                if (e.key === 'currentUser' || e.key === 'isGuest') {
+                    updateProfileUI();
+                }
+            });
+        });
+    </script>
+</body>
+</html>

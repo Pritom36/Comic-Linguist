@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learning Levels - Comic Linguist</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Assumes style.css is one level up from the 'pages' directory -->
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        /* --- Assessment Section Styles --- */
+        #assessment-test {
+            display: none;
+            margin-top: 2rem;
+            padding: 2rem 2.5rem;
+            border: 1.5px solid #e0e7ef;
+            border-radius: 18px;
+            background: linear-gradient(135deg, #f8fbff 70%, #eaf3fa 100%);
+            box-shadow: 0 4px 24px 0 rgba(0, 60, 120, 0.07);
+            transition: box-shadow 0.2s;
+        }
+        #assessment-test:focus-within {
+            box-shadow: 0 6px 32px 0 rgba(0, 60, 120, 0.13);
+        }
+        .assessment-instructions {
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            color: #5a6a7a;
+            font-size: 1.08em;
+        }
+        .question {
+            margin-bottom: 2rem;
+            padding-bottom: 1.2rem;
+            border-bottom: 1px dashed #b8c6d8;
+            background: rgba(240, 248, 255, 0.18);
+            border-radius: 8px;
+            transition: background 0.2s;
+        }
+        .question:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        .question p {
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            color: #1a3557;
+            font-size: 1.08em;
+        }
+        .question label {
+            display: block;
+            margin-bottom: 0.5rem;
+            cursor: pointer;
+            padding: 0.38rem 0.7rem 0.38rem 0.2rem;
+            border-radius: 6px;
+            font-size: 1em;
+            transition: background 0.18s, color 0.18s;
+        }
+        .question label:hover,
+        .question input[type="radio"]:focus + label {
+            background: #e3f0ff;
+            color: #0a4a8a;
+        }
+        .question input[type="radio"] {
+            margin-right: 0.9rem;
+            accent-color: #007bff;
+            vertical-align: middle;
+            transform: scale(1.15);
+        }
+        #assessment-result {
+            display: none;
+            margin-top: 2.5rem;
+            padding: 2rem 2.5rem;
+            border: 2px solid #007bff;
+            border-radius: 18px;
+            background: linear-gradient(135deg, #f0f8ff 70%, #e3f0ff 100%);
+            text-align: center;
+            box-shadow: 0 4px 24px 0 rgba(0, 60, 120, 0.09);
+        }
+        #assessment-result h4 {
+            color: #007bff;
+            margin-bottom: 1.2rem;
+            font-size: 1.4em;
+            font-weight: 700;
+            letter-spacing: 0.01em;
+        }
+        #assessment-result p {
+            margin-bottom: 0.7rem;
+            color: #1a3557;
+        }
+        .level-recommendation {
+            font-weight: bold;
+            font-size: 1.22em;
+            margin-top: 1.2rem;
+            margin-bottom: 1.2rem;
+            color: #0a4a8a;
+        }
+        .start-over-btn {
+            margin-top: 1.7rem;
+            padding: 0.7em 2.2em;
+            font-size: 1.08em;
+            border-radius: 6px;
+            border: none;
+            background: #e3f0ff;
+            color: #007bff;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.18s, color 0.18s;
+        }
+        .start-over-btn:hover {
+            background: #007bff;
+            color: #fff;
+        }
+        #level-links a.btn {
+            margin-top: 1.2rem;
+            display: inline-block;
+            font-size: 1.08em;
+            padding: 0.7em 2.2em;
+            border-radius: 6px;
+            background: linear-gradient(90deg, #007bff 60%, #00c6ff 100%);
+            color: #fff !important;
+            font-weight: 600;
+            box-shadow: 0 2px 8px 0 rgba(0, 123, 255, 0.08);
+            text-decoration: none;
+            transition: background 0.18s, box-shadow 0.18s;
+        }
+        #level-links a.btn:hover {
+            background: linear-gradient(90deg, #0056b3 60%, #0096c7 100%);
+            box-shadow: 0 4px 16px 0 rgba(0, 123, 255, 0.13);
+        }
+
+        /* --- General Page Styles --- */
+        body {
+            font-family: 'Segoe UI', 'Roboto', 'Arial', sans-serif;
+            background: #f7fafd;
+            color: #1a3557;
+            font-size: 1.06em;
+            line-height: 1.7;
+        }
+        .page-intro {
+            margin-bottom: 2.2rem;
+            font-size: 1.13em;
+            color: #3b4a5a;
+            background: linear-gradient(90deg, #e3f0ff 60%, #f8fbff 100%);
+            padding: 1.1em 1.5em;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px 0 rgba(0, 123, 255, 0.04);
+        }
+        .feature-section {
+            margin-bottom: 3.2rem;
+            background: #fff;
+            border-radius: 14px;
+            box-shadow: 0 2px 12px 0 rgba(0, 60, 120, 0.06);
+            padding: 2.2rem 2.5rem;
+        }
+        .feature-section h2 {
+            color: #007bff;
+            font-size: 1.45em;
+            font-weight: 700;
+            margin-bottom: 1.2rem;
+            letter-spacing: 0.01em;
+        }
+        .feature-section h3 {
+            color: #0a4a8a;
+            font-size: 1.18em;
+            font-weight: 600;
+            margin-bottom: 0.7rem;
+        }
+        .level-features, .level-examples, .assessment-features, .assessment-info {
+            margin-top: 1.5rem;
+        }
+        .level-features h4, .level-examples h4, .assessment-features h4 {
+            margin-bottom: 0.8rem;
+            color: #007bff;
+            font-size: 1.08em;
+            font-weight: 600;
+        }
+        ul {
+            list-style: disc;
+            margin-left: 1.7rem;
+            padding-left: 0.5rem;
+        }
+        li {
+            margin-bottom: 0.5rem;
+        }
+        .cta-section {
+            margin-top: 2.2rem;
+            text-align: center;
+        }
+        .btn,
+        button.btn {
+            padding: 0.7em 2.2em;
+            border-radius: 6px;
+            border: none;
+            font-size: 1.08em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.18s, color 0.18s, box-shadow 0.18s;
+            box-shadow: 0 2px 8px 0 rgba(0, 123, 255, 0.08);
+        }
+        .btn-primary,
+        button.btn-primary {
+            background: linear-gradient(90deg, #007bff 60%, #00c6ff 100%);
+            color: #fff;
+        }
+        .btn-primary:hover,
+        button.btn-primary:hover {
+            background: linear-gradient(90deg, #0056b3 60%, #0096c7 100%);
+            color: #fff;
+        }
+        .btn-secondary,
+        button.btn-secondary {
+            background: #e3f0ff;
+            color: #007bff;
+        }
+        .btn-secondary:hover,
+        button.btn-secondary:hover {
+            background: #007bff;
+            color: #fff;
+        }
+        hr {
+            border: 0;
+            height: 1px;
+            background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 123, 255, 0.18), rgba(0, 0, 0, 0));
+            margin: 3rem 0;
+        }
+
+        /* --- Responsive Design --- */
+        @media (max-width: 900px) {
+            .feature-section,
+            #assessment-test,
+            #assessment-result {
+                padding: 1.2rem 1rem;
+            }
+        }
+        @media (max-width: 600px) {
+            .feature-section,
+            #assessment-test,
+            #assessment-result {
+                padding: 0.7rem 0.2rem;
+                border-radius: 8px;
+            }
+            .page-intro {
+                padding: 0.7em 0.5em;
+                border-radius: 6px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+
+    <main class="container page-content">
+        <h1 align="center">Learning Levels</h1>
+        <p class="page-intro">Discover the different English learning levels offered by Comic Linguist and find the best fit for your journey. Use our quick assessment below to get a personalized recommendation!</p>
+
+        <section class="feature-section">
+            <h2>Beginner Level</h2>
+            <div class="feature-content">
+                <div class="feature-text">
+                    <h3>Level A1-A2 (Basic User)</h3>
+                    <p>Perfect for learners starting their English journey or those who know just a few basic phrases. Focuses on understanding and using familiar everyday expressions and basic sentences.</p>
+                    <ul>
+                        <li>Understand and use simple greetings and introductions.</li>
+                        <li>Ask and answer basic questions about personal details (name, location, family).</li>
+                        <li>Interact in a simple way provided the other person talks slowly and clearly.</li>
+                        <li>Recognize common words and basic phrases in simple texts/comics.</li>
+                    </ul>
+
+                    <div class="level-features">
+                        <h4>Core Skills Covered:</h4>
+                        <ul>
+                            <li>Basic sentence structures (Subject-Verb-Object).</li>
+                            <li>Present Simple tense (e.g., "I go", "She eats").</li>
+                            <li>Common nouns, verbs, and adjectives.</li>
+                            <li>Basic prepositions (in, on, at).</li>
+                            <li>Forming simple questions (What, Where, Who).</li>
+                        </ul>
+                    </div>
+
+                    <div class="level-examples">
+                        <h4>Example Comic Series:</h4>
+                        <ul>
+                            <li>"My First Day" - Simple introductions and routines.</li>
+                            <li>"At the Market" - Basic shopping vocabulary.</li>
+                            <li>"Meet the Family" - Introducing family members.</li>
+                        </ul>
+                         <a href="../index.html#comics-beginner" class="btn btn-secondary">View Beginner Comics</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="feature-section">
+            <h2>Intermediate Level</h2>
+            <div class="feature-content">
+                <div class="feature-text">
+                    <h3>Level B1-B2 (Independent User)</h3>
+                    <p>For learners who can understand the main points of clear standard input on familiar matters and can deal with most situations likely to arise whilst travelling. Can produce simple connected text on topics which are familiar or of personal interest.</p>
+                     <ul>
+                        <li>Understand main ideas of complex text on both concrete and abstract topics.</li>
+                        <li>Interact with a degree of fluency and spontaneity.</li>
+                        <li>Explain a viewpoint on a topical issue giving the advantages and disadvantages.</li>
+                        <li>Understand longer narratives and follow plotlines in comics.</li>
+                    </ul>
+
+                    <div class="level-features">
+                        <h4>Core Skills Covered:</h4>
+                        <ul>
+                            <li>Past Simple, Present Continuous, Past Continuous tenses.</li>
+                            <li>Introduction to Perfect tenses (Present Perfect).</li>
+                            <li>Modal verbs (can, could, should, must).</li>
+                            <li>Comparatives and superlatives.</li>
+                            <li>Basic conditional sentences (if...).</li>
+                             <li>Common phrasal verbs and idiomatic expressions.</li>
+                        </ul>
+                    </div>
+
+                    <div class="level-examples">
+                        <h4>Example Comic Series:</h4>
+                        <ul>
+                            <li>"The Office Mystery" - Following clues and discussions.</li>
+                            <li>"Travel Diaries" - Narratives about experiences.</li>
+                            <li>"Future Visions" - Discussing plans and possibilities.</li>
+                        </ul>
+                        <a href="../index.html#comics-intermediate" class="btn btn-secondary">View Intermediate Comics</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="feature-section">
+            <h2>Advanced Level</h2>
+            <div class="feature-content">
+                <div class="feature-text">
+                    <h3>Level C1-C2 (Proficient User)</h3>
+                     <p>Aimed at learners who can understand a wide range of demanding, longer texts, and recognise implicit meaning. Can express ideas fluently and spontaneously without much obvious searching for expressions. Can use language flexibly and effectively for social, academic and professional purposes.</p>
+                    <ul>
+                        <li>Understand virtually everything heard or read with ease.</li>
+                        <li>Summarize information from different spoken and written sources, reconstructing arguments and accounts coherently.</li>
+                        <li>Express oneself spontaneously, very fluently and precisely.</li>
+                        <li>Differentiate finer shades of meaning even in more complex situations.</li>
+                        <li>Appreciate humor, sarcasm, and cultural nuances in comics.</li>
+                    </ul>
+
+                    <div class="level-features">
+                        <h4>Core Skills Covered:</h4>
+                        <ul>
+                            <li>All major tenses, including perfect and continuous aspects.</li>
+                            <li>Advanced conditional forms and passive voice variations.</li>
+                            <li>Complex sentence structures with relative clauses, conjunctions.</li>
+                            <li>Nuanced vocabulary, synonyms, antonyms, and collocations.</li>
+                            <li>Sophisticated idioms, phrasal verbs, and cultural references.</li>
+                        </ul>
+                    </div>
+
+                    <div class="level-examples">
+                        <h4>Example Comic Series:</h4>
+                        <ul>
+                            <li>"Literary Adaptations" - Classic stories retold.</li>
+                            <li>"Global Issues Debated" - Complex arguments and perspectives.</li>
+                            <li>"Sci-Fi Epics" - Intricate plots and specialized vocabulary.</li>
+                        </ul>
+                        <a href="../index.html#comics-advanced" class="btn btn-secondary">View Advanced Comics</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <hr>
+
+        <section id="assessment" class="feature-section">
+            <h2>Level Assessment</h2>
+            <div class="feature-content">
+                <div class="feature-text">
+                    <div id="assessment-intro">
+                        <h3>Find Your Starting Point</h3>
+                        <p>Not sure which level is right for you? Take our quick assessment (approx. 5-10 minutes) to gauge your current English skills and get a recommendation.</p>
+
+                        <div class="assessment-features">
+                            <h4>Assessment Overview:</h4>
+                            <ul>
+                                <li>12 Multiple-choice questions</li>
+                                <li>Focuses on common Vocabulary and Grammar points</li>
+                                <li>No time limit - take your time!</li>
+                                <!-- <li>Reading comprehension snippets (Example - could be added)</li> -->
+                            </ul>
+                        </div>
+
+                        <div class="assessment-info">
+                            <p><strong>Result:</strong> Immediate level recommendation (Beginner, Intermediate, or Advanced)</p>
+                        </div>
+
+                        <div class="cta-section">
+                            <button id="start-assessment-btn" class="btn btn-primary btn-lg">Start Assessment Now</button>
+                        </div>
+                    </div>
+
+                    <!-- Assessment Questions Container -->
+                    <div id="assessment-test">
+                        <form id="assessment-form">
+                            <h4>English Level Assessment</h4>
+                             <p class="assessment-instructions">Answer the questions you feel confident about. Feel free to skip any questions you find too difficult. Click "Submit" when you're ready.</p>
+
+                            <!-- Question 1 (Beginner) -->
+                            <div class="question">
+                                <p>1. What is the opposite of "big"?</p>
+                                <label><input type="radio" name="q1" value="a"> Long</label>
+                                <label><input type="radio" name="q1" value="b"> Small</label>
+                                <label><input type="radio" name="q1" value="c"> Fast</label>
+                            </div>
+
+                            <!-- Question 2 (Beginner) -->
+                            <div class="question">
+                                <p>2. Choose the correct sentence: "She ___ apples."</p>
+                                <label><input type="radio" name="q2" value="a"> eat</label>
+                                <label><input type="radio" name="q2" value="b"> eating</label>
+                                <label><input type="radio" name="q2" value="c"> eats</label>
+                            </div>
+
+                            <!-- Question 3 (Beginner) -->
+                             <div class="question">
+                                <p>3. Where do you usually sleep?</p>
+                                <label><input type="radio" name="q3" value="a"> In the kitchen</label>
+                                <label><input type="radio" name="q3" value="b"> In the bedroom</label>
+                                <label><input type="radio" name="q3" value="c"> In the garden</label>
+                            </div>
+
+                            <!-- Question 4 (Beginner) -->
+                            <div class="question">
+                                <p>4. "My name ___ John."</p>
+                                <label><input type="radio" name="q4" value="a"> is</label>
+                                <label><input type="radio" name="q4" value="b"> are</label>
+                                <label><input type="radio" name="q4" value="c"> am</label>
+                            </div>
+
+                            <!-- Question 5 (Intermediate) -->
+                            <div class="question">
+                                <p>5. "I ___ television when the phone rang."</p>
+                                <label><input type="radio" name="q5" value="a"> watch</label>
+                                <label><input type="radio" name="q5" value="b"> was watching</label>
+                                <label><input type="radio" name="q5" value="c"> have watched</label>
+                            </div>
+
+                            <!-- Question 6 (Intermediate) -->
+                            <div class="question">
+                                <p>6. If I ___ more time, I would travel the world.</p>
+                                <label><input type="radio" name="q6" value="a"> have</label>
+                                <label><input type="radio" name="q6" value="b"> will have</label>
+                                <label><input type="radio" name="q6" value="c"> had</label>
+                            </div>
+
+                             <!-- Question 7 (Intermediate) -->
+                            <div class="question">
+                                <p>7. Which word means "very tired"?</p>
+                                <label><input type="radio" name="q7" value="a"> Exhausted</label>
+                                <label><input type="radio" name="q7" value="b"> Angry</label>
+                                <label><input type="radio" name="q7" value="c"> Confused</label>
+                            </div>
+
+                             <!-- Question 8 (Intermediate) -->
+                            <div class="question">
+                                <p>8. "He has lived here ___ 2010."</p>
+                                <label><input type="radio" name="q8" value="a"> for</label>
+                                <label><input type="radio" name="q8" value="b"> since</label>
+                                <label><input type="radio" name="q8" value="c"> ago</label>
+                            </div>
+
+                            <!-- Question 9 (Advanced) -->
+                            <div class="question">
+                                <p>9. The report ___ by the committee yesterday.</p>
+                                <label><input type="radio" name="q9" value="a"> was reviewed</label>
+                                <label><input type="radio" name="q9" value="b"> reviewed</label>
+                                <label><input type="radio" name="q9" value="c"> has reviewed</label>
+                            </div>
+
+                            <!-- Question 10 (Advanced) -->
+                            <div class="question">
+                                <p>10. "Despite the rain, they went ahead ___ their plans."</p>
+                                <label><input type="radio" name="q10" value="a"> on</label>
+                                <label><input type="radio" name="q10" value="b"> with</label>
+                                <label><input type="radio" name="q10" value="c"> by</label>
+                            </div>
+
+                             <!-- Question 11 (Advanced) -->
+                            <div class="question">
+                                <p>11. Choose the most suitable synonym for "ubiquitous".</p>
+                                <label><input type="radio" name="q11" value="a"> Rare</label>
+                                <label><input type="radio" name="q11" value="b"> Expensive</label>
+                                <label><input type="radio" name="q11" value="c"> Everywhere</label>
+                            </div>
+
+                            <!-- Question 12 (Advanced) -->
+                            <div class="question">
+                                <p>12. "Had I known you were coming, I ___ a cake."</p>
+                                <label><input type="radio" name="q12" value="a"> would bake</label>
+                                <label><input type="radio" name="q12" value="b"> will bake</label>
+                                <label><input type="radio" name="q12" value="c"> would have baked</label>
+                            </div>
+
+                            <div class="cta-section">
+                                 <button type="button" id="submit-assessment-btn" class="btn btn-primary btn-lg">Submit Assessment</button>
+                             </div>
+                        </form>
+                    </div>
+
+                    <!-- Assessment Result Container -->
+                    <div id="assessment-result">
+                        <h4>Assessment Result</h4>
+                        <p>Based on your answers, your estimated score is <strong id="assessment-score"></strong> out of 12.</p>
+                        <p class="level-recommendation">Recommended Starting Level: <strong id="recommended-level"></strong></p>
+                        <p id="level-description"></p>
+                        <div id="level-links">
+                            <!-- Links will be added dynamically by JS -->
+                        </div>
+                         <button id="start-over-btn" class="btn btn-secondary start-over-btn">Take Assessment Again</button>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section class="feature-section">
+            <h2>Level Progression</h2>
+            <div class="feature-content">
+                <div class="feature-text">
+                     <h3>Grow Your Skills with Us!</h3>
+                    <p>Comic Linguist is designed to help you improve. As you engage with comics and practice, you can:</p>
+                    <ul>
+                        <li>Re-take this assessment anytime to see your progress.</li>
+                        <li>Challenge yourself by occasionally trying comics slightly above your recommended level.</li>
+                        <li>Utilize vocabulary lists and grammar notes accompanying the comics (where available).</li>
+                        <li>(Coming Soon) Track achievements and milestones in your personal dashboard.</li>
+                    </ul>
+                     <p>Remember, language learning is a journey, not a race. Enjoy the process!</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container footer-container">
+            <div class="footer-col">
+                <h3>Comic Linguist</h3>
+                <p>Learn English through engaging comic books. Fun, visual, and effective!</p>
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../index.html#comics">Comics</a></li>
+                    <li><a href="levels.html">Levels</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+             <div class="footer-col">
+                <h3>Resources</h3>
+                 <ul>
+                    <!-- Add actual links if these pages exist -->
+                    <li><a href="#">How It Works</a></li>
+                    <li><a href="#">Learning Tips</a></li>
+                    <li><a href="#">Grammar Guides</a></li>
+                    <li><a href="#">Vocabulary Lists</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Support</h3>
+                <ul>
+                     <!-- Add actual links if these pages exist -->
+                    <li><a href="#">FAQs</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">Help Center</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>© <span id="copyright-year"></span> Comic Linguist. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Assumes script.js is one level up from the 'pages' directory -->
+    <script src="../script.js"></script>
+    <script>
+        // Assessment-specific JavaScript (can also be moved to script.js)
+        document.addEventListener('DOMContentLoaded', () => {
+            const startBtn = document.getElementById('start-assessment-btn');
+            const submitBtn = document.getElementById('submit-assessment-btn');
+            const startOverBtn = document.getElementById('start-over-btn');
+
+            const assessmentIntro = document.getElementById('assessment-intro');
+            const assessmentTestDiv = document.getElementById('assessment-test');
+            const assessmentResultDiv = document.getElementById('assessment-result');
+            const assessmentForm = document.getElementById('assessment-form');
+
+            const scoreSpan = document.getElementById('assessment-score');
+            const levelSpan = document.getElementById('recommended-level');
+            const descriptionP = document.getElementById('level-description');
+            const levelLinksDiv = document.getElementById('level-links');
+
+            // Define correct answers
+            const correctAnswers = {
+                q1: 'b', q2: 'c', q3: 'b', q4: 'a', // Beginner
+                q5: 'b', q6: 'c', q7: 'a', q8: 'b', // Intermediate
+                q9: 'a', q10: 'b', q11: 'c', q12: 'c' // Advanced
+            };
+            const totalQuestions = Object.keys(correctAnswers).length; // Is 12
+
+            function showAssessment() {
+                assessmentIntro.style.display = 'none';
+                assessmentTestDiv.style.display = 'block';
+                assessmentResultDiv.style.display = 'none';
+                assessmentForm.reset(); // Ensure form is clear when starting
+                // Scroll to the top of the assessment for better UX
+                assessmentTestDiv.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+
+            function showResult(score) {
+                let level = '';
+                let description = '';
+                let linksHTML = '';
+
+                // --- Determine Level Based on Score ---
+                // Adjust thresholds as needed for desired distribution
+                if (score <= 4) { // 0-4 correct answers -> Beginner
+                    level = 'Beginner (A1-A2)';
+                    description = 'Your results suggest the Beginner level is a great place to start. Focus on building foundational vocabulary and basic grammar through our simpler comics.';
+                    linksHTML = '<a href="../index.html#comics-beginner" class="btn btn-primary">Explore Beginner Comics</a>'; // Changed to primary button
+                } else if (score <= 8) { // 5-8 correct answers -> Intermediate
+                    level = 'Intermediate (B1-B2)';
+                    description = 'You have a solid grasp of English basics! The Intermediate level offers more complex stories and grammar to help you grow your fluency.';
+                     linksHTML = '<a href="../index.html#comics-intermediate" class="btn btn-primary">Explore Intermediate Comics</a>'; // Changed to primary button
+                } else { // 9-12 correct answers -> Advanced
+                    level = 'Advanced (C1-C2)';
+                    description = 'Your English skills are strong! Challenge yourself with the nuanced language, complex plots, and cultural references found in our Advanced comics.';
+                    linksHTML = '<a href="../index.html#comics-advanced" class="btn btn-primary">Explore Advanced Comics</a>'; // Changed to primary button
+                }
+
+                // --- Update Result Display ---
+                scoreSpan.textContent = score;
+                levelSpan.textContent = level;
+                descriptionP.textContent = description;
+                levelLinksDiv.innerHTML = linksHTML; // Use innerHTML to add the button link
+
+                // --- Show Results, Hide Test ---
+                assessmentTestDiv.style.display = 'none';
+                assessmentResultDiv.style.display = 'block';
+                 // Scroll to the results for better UX
+                assessmentResultDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+
+
+            function calculateScore() {
+                let score = 0;
+                const formData = new FormData(assessmentForm);
+
+                // Iterate through defined correct answers
+                for (const [question, correctAnswer] of Object.entries(correctAnswers)) {
+                    // Get the user's answer for this question
+                    const userAnswer = formData.get(question);
+                    // If the user answered and it's correct, increment score
+                    if (userAnswer === correctAnswer) {
+                        score++;
+                    }
+                }
+                return score;
+            }
+
+            function resetAssessment() {
+                 assessmentResultDiv.style.display = 'none';
+                 assessmentTestDiv.style.display = 'none'; // Hide test too
+                 assessmentIntro.style.display = 'block'; // Show intro again
+                 assessmentForm.reset(); // Clear any selections
+                 // Scroll back to the assessment intro section
+                 assessmentIntro.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+
+            // --- Event Listeners ---
+            if (startBtn) {
+                startBtn.addEventListener('click', showAssessment);
+            }
+
+            if (submitBtn) {
+                submitBtn.addEventListener('click', () => {
+                    // REMOVED: Validation forcing all answers.
+                    // Now simply calculate score based on what *was* answered.
+                    const score = calculateScore();
+                    showResult(score);
+                });
+            }
+
+             if (startOverBtn) {
+                startOverBtn.addEventListener('click', resetAssessment);
+            }
+
+            // --- Copyright Year (Ensure this is also in script.js or run here safely) ---
+            const copyrightYear = document.getElementById('copyright-year');
+            if (copyrightYear) {
+                copyrightYear.textContent = new Date().getFullYear();
+            }
+
+        }); // End DOMContentLoaded
+
+    </script>
+</body>
+</html>

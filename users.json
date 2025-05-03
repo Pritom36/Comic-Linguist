@@ -1,0 +1,53 @@
+{
+  "users": [
+    {
+      "username": "pritom",
+      "pin": "364546",
+      "subscriptionType": "1-month",
+      "expiryDate": "2025-06-01",
+      "status": "active"
+    },
+    {
+      "username": "expired",
+      "pin": "111111",
+      "subscriptionType": "1-month",
+      "expiryDate": "2025-01-01",
+      "status": "inactive"
+    },
+    {
+      "username": "premium",
+      "pin": "222222",
+      "subscriptionType": "1-year",
+      "expiryDate": "2026-05-03",
+      "status": "active"
+    },
+    {
+      "username": "inactive",
+      "pin": "333333",
+      "subscriptionType": "6-month",
+      "expiryDate": "2025-12-01",
+      "status": "inactive"
+    },
+    {
+      "username": "Arupa",
+      "pin": "123456",
+      "subscriptionType": "6-month",
+      "expiryDate": "2025-12-01",
+      "status": "active"
+    },
+    {
+      "username": "Urmi",
+      "pin": "987654",
+      "subscriptionType": "1-year",
+      "expiryDate": "2026-05-04",
+      "status": "active"
+    },
+    {
+      "username": "teacher1",
+      "pin": "654321",
+      "subscriptionType": "1-year",
+      "expiryDate": "2026-01-01",
+      "status": "active"
+    }
+  ]
+}

@@ -1,0 +1,374 @@
+{
+  "comics": [
+    {
+      "id": "comic1",
+      "title": "One Punch Man Season 1 Chapter 1",
+      "description": "Saitama is a hero who can defeat any enemy with a single punch, but he is bored with his own strength.",
+      "level": "beginner",
+      "locked": false,
+      "coverImage": "./comicsimages/onepunchman/season1/chapter1/1_Page_01.jpg",
+      "imageData": {
+        "basePath": "./comicsimages/onepunchman/season1/chapter1/",
+        "filenamePrefix": "1_Page_",
+        "pageNumberPadding": 2,
+        "imageFormat": "jpg",
+        "pageCount": 27
+      },
+      "vocabId": "vocab1"
+    },
+    {
+      "id": "comic2",
+      "title": "One Punch Man Season 1 Chapter 2",
+      "description": "Saitama is a hero who can defeat any enemy with a single punch, but he is bored with his own strength.",
+      "level": "beginner",
+      "locked": true,
+      "coverImage": "comicsimages/onepunchman/season1/chapter1/1_Page_01.jpg",
+      "imageData": {
+        "basePath": "comicsimages/onepunchman/season1/chapter2/",
+        "filenamePrefix": "2_page_",
+        "pageNumberPadding": 2,
+        "imageFormat": "jpg",
+        "pageCount": 16
+      },
+      "vocabId": "vocab2"
+    },
+    {
+      "id": "comic3",
+      "title": "Sci-Fi Chronicles",
+      "description": "A futuristic adventure with complex themes and advanced vocabulary.",
+      "level": "advanced",
+      "locked": true,
+      "coverImage": "https://via.placeholder.com/400x300/F72585/FFFFFF?text=Sci-Fi+Chronicles",
+      "imageData": {
+        "basePath": "comics-images/comic3/",
+        "filenamePrefix": "",
+        "pageNumberPadding": 1,
+        "imageFormat": "webp",
+        "pageCount": 10
+      },
+      "vocabId": "vocab3"
+    },
+    {
+      "id": "comic4",
+      "title": "The Lost Treasure",
+      "description": "A group of friends search for a legendary treasure in the jungle.",
+      "level": "beginner",
+      "locked": false,
+      "coverImage": "https://via.placeholder.com/400x300/4CC9F0/FFFFFF?text=The+Lost+Treasure",
+      "imageData": {
+        "basePath": "comics-images/comic4/",
+        "filenamePrefix": "treasure_",
+        "pageNumberPadding": 2,
+        "imageFormat": "jpg",
+        "pageCount": 15
+      },
+      "vocabId": "not_found"
+    },
+    {
+      "id": "comic5",
+      "title": "Robot Rebellion",
+      "description": "Robots rise against their creators in a city of the future.",
+      "level": "intermediate",
+      "locked": true,
+      "coverImage": "https://via.placeholder.com/400x300/4895EF/FFFFFF?text=Robot+Rebellion",
+      "imageData": {
+        "basePath": "comics-images/comic5/",
+        "filenamePrefix": "robot_",
+        "pageNumberPadding": 2,
+        "imageFormat": "png",
+        "pageCount": 18
+      },
+      "vocabId": "not_found"
+    },
+    {
+      "id": "comic6",
+      "title": "Space Explorers",
+      "description": "Join a team of astronauts on a mission to Mars.",
+      "level": "beginner",
+      "locked": false,
+      "coverImage": "https://via.placeholder.com/400x300/4361EE/FFFFFF?text=Space+Explorers",
+      "imageData": {
+        "basePath": "comics-images/comic6/",
+        "filenamePrefix": "mars_",
+        "pageNumberPadding": 2,
+        "imageFormat": "jpg",
+        "pageCount": 12
+      },
+      "vocabId": "not_found"
+    },
+    {
+      "id": "comic7",
+      "title": "Jungle Adventure",
+      "description": "An explorer faces wild animals and hidden traps.",
+      "level": "beginner",
+      "locked": false,
+      "coverImage": "https://via.placeholder.com/400x300/3A0CA3/FFFFFF?text=Jungle+Adventure",
+      "imageData": {
+        "basePath": "comics-images/comic7/",
+        "filenamePrefix": "jungle_",
+        "pageNumberPadding": 2,
+        "imageFormat": "jpg",
+        "pageCount": 14
+      },
+      "vocabId": "not_found"
+    },
+    {
+      "id": "comic8",
+      "title": "Superhero School",
+      "description": "Kids with superpowers learn to be heroes.",
+      "level": "intermediate",
+      "locked": true,
+      "coverImage": "https://via.placeholder.com/400x300/7209B7/FFFFFF?text=Superhero+School",
+      "imageData": {
+        "basePath": "comics-images/comic8/",
+        "filenamePrefix": "hero_",
+        "pageNumberPadding": 2,
+        "imageFormat": "png",
+        "pageCount": 20
+      },
+      "vocabId": "not_found"
+    },
+    {
+      "id": "comic9",
+      "title": "The Haunted House",
+      "description": "A spooky story set in an abandoned mansion.",
+      "level": "beginner",
+      "locked": false,
+      "coverImage": "https://via.placeholder.com/400x300/560BAD/FFFFFF?text=Haunted+House",
+      "imageData": {
+        "basePath": "comics-images/comic9/",
+        "filenamePrefix": "haunted_",
+        "pageNumberPadding": 2,
+        "imageFormat": "jpg",
+        "pageCount": 13
+      },
+      "vocabId": "not_found"
+    },
+    {
+      "id": "comic10",
+      "title": "Pirate's Quest",
+      "description": "Sail the seas in search of adventure and gold.",
+      "level": "intermediate",
+      "locked": true,
+      "coverImage": "https://via.placeholder.com/400x300/480CA8/FFFFFF?text=Pirate's+Quest",
+      "imageData": {
+        "basePath": "comics-images/comic10/",
+        "filenamePrefix": "pirate_",
+        "pageNumberPadding": 2,
+        "imageFormat": "png",
+        "pageCount": 16
+      },
+      "vocabId": "not_found"
+    },
+    {
+      "id": "comic11",
+      "title": "Time Travelers",
+      "description": "A team travels through different eras to fix history.",
+      "level": "advanced",
+      "locked": false,
+      "coverImage": "https://via.placeholder.com/400x300/3F37C9/FFFFFF?text=Time+Travelers",
+      "imageData": {
+        "basePath": "comics-images/comic11/",
+        "filenamePrefix": "time_",
+        "pageNumberPadding": 2,
+        "imageFormat": "webp",
+        "pageCount": 19
+      },
+      "vocabId": "not_found"
+    },
+    {
+      "id": "comic12",
+      "title": "Underwater Kingdom",
+      "description": "Discover the secrets of the ocean with a team of divers.",
+      "level": "beginner",
+      "locked": false,
+      "coverImage": "https://via.placeholder.com/400x300/4361EE/FFFFFF?text=Underwater+Kingdom",
+      "imageData": {
+        "basePath": "comics-images/comic12/",
+        "filenamePrefix": "underwater_",
+        "pageNumberPadding": 2,
+        "imageFormat": "jpg",
+        "pageCount": 11
+      },
+      "vocabId": "not_found"
+    },
+    {
+      "id": "comic13",
+      "title": "Alien Encounter",
+      "description": "Humans meet extraterrestrial life for the first time.",
+      "level": "intermediate",
+      "locked": true,
+      "coverImage": "https://via.placeholder.com/400x300/4895EF/FFFFFF?text=Alien+Encounter",
+      "imageData": {
+        "basePath": "comics-images/comic13/",
+        "filenamePrefix": "alien_",
+        "pageNumberPadding": 2,
+        "imageFormat": "png",
+        "pageCount": 17
+      },
+      "vocabId": "not_found"
+    },
+    {
+      "id": "comic14",
+      "title": "Magic Academy",
+      "description": "Students learn spells and fight dark forces.",
+      "level": "beginner",
+      "locked": false,
+      "coverImage": "https://via.placeholder.com/400x300/4CC9F0/FFFFFF?text=Magic+Academy",
+      "imageData": {
+        "basePath": "comics-images/comic14/",
+        "filenamePrefix": "magic_",
+        "pageNumberPadding": 2,
+        "imageFormat": "jpg",
+        "pageCount": 13
+      },
+      "vocabId": "not_found"
+    },
+    {
+      "id": "comic15",
+      "title": "Cyber City",
+      "description": "A detective solves crimes in a high-tech metropolis.",
+      "level": "advanced",
+      "locked": false,
+      "coverImage": "https://via.placeholder.com/400x300/3A0CA3/FFFFFF?text=Cyber+City",
+      "imageData": {
+        "basePath": "comics-images/comic15/",
+        "filenamePrefix": "cyber_",
+        "pageNumberPadding": 2,
+        "imageFormat": "webp",
+        "pageCount": 21
+      },
+      "vocabId": "not_found"
+    },
+    {
+      "id": "comic16",
+      "title": "Desert Mirage",
+      "description": "Survivors search for water in a vast desert.",
+      "level": "intermediate",
+      "locked": true,
+      "coverImage": "https://via.placeholder.com/400x300/7209B7/FFFFFF?text=Desert+Mirage",
+      "imageData": {
+        "basePath": "comics-images/comic16/",
+        "filenamePrefix": "desert_",
+        "pageNumberPadding": 2,
+        "imageFormat": "png",
+        "pageCount": 15
+      },
+      "vocabId": "not_found"
+    },
+    {
+      "id": "comic17",
+      "title": "Monster Hunters",
+      "description": "A team tracks mythical creatures around the world.",
+      "level": "advanced",
+      "locked": false,
+      "coverImage": "https://via.placeholder.com/400x300/560BAD/FFFFFF?text=Monster+Hunters",
+      "imageData": {
+        "basePath": "comics-images/comic17/",
+        "filenamePrefix": "monster_",
+        "pageNumberPadding": 2,
+        "imageFormat": "webp",
+        "pageCount": 18
+      },
+      "vocabId": "not_found"
+    },
+    {
+      "id": "comic18",
+      "title": "The Secret Garden",
+      "description": "Children discover a magical garden hidden behind a wall.",
+      "level": "beginner",
+      "locked": false,
+      "coverImage": "https://via.placeholder.com/400x300/480CA8/FFFFFF?text=Secret+Garden",
+      "imageData": {
+        "basePath": "comics-images/comic18/",
+        "filenamePrefix": "garden_",
+        "pageNumberPadding": 2,
+        "imageFormat": "jpg",
+        "pageCount": 12
+      },
+      "vocabId": "not_found"
+    },
+    {
+      "id": "comic19",
+      "title": "Dragon's Lair",
+      "description": "A knight faces a dragon to save the kingdom.",
+      "level": "intermediate",
+      "locked": true,
+      "coverImage": "https://via.placeholder.com/400x300/4CC9F0/FFFFFF?text=Dragon's+Lair",
+      "imageData": {
+        "basePath": "comics-images/comic19/",
+        "filenamePrefix": "dragon_",
+        "pageNumberPadding": 2,
+        "imageFormat": "png",
+        "pageCount": 14
+      },
+      "vocabId": "not_found"
+    },
+    {
+      "id": "comic20",
+      "title": "The Inventor's Dream",
+      "description": "An inventor creates a machine that changes the world.",
+      "level": "advanced",
+      "locked": false,
+      "coverImage": "https://via.placeholder.com/400x300/4895EF/FFFFFF?text=Inventor's+Dream",
+      "imageData": {
+        "basePath": "comics-images/comic20/",
+        "filenamePrefix": "inventor_",
+        "pageNumberPadding": 2,
+        "imageFormat": "webp",
+        "pageCount": 16
+      },
+      "vocabId": "not_found"
+    },
+    {
+      "id": "comic21",
+      "title": "Island Escape",
+      "description": "Stranded on a deserted island, a group must find a way home.",
+      "level": "beginner",
+      "locked": false,
+      "coverImage": "https://via.placeholder.com/400x300/4361EE/FFFFFF?text=Island+Escape",
+      "imageData": {
+        "basePath": "comics-images/comic21/",
+        "filenamePrefix": "island_",
+        "pageNumberPadding": 2,
+        "imageFormat": "jpg",
+        "pageCount": 13
+      },
+      "vocabId": "not_found"
+    },
+    {
+      "id": "comic22",
+      "title": "Shadow Agents",
+      "description": "Secret agents stop a global conspiracy.",
+      "level": "advanced",
+      "locked": false,
+      "coverImage": "https://via.placeholder.com/400x300/3F37C9/FFFFFF?text=Shadow+Agents",
+      "imageData": {
+        "basePath": "comics-images/comic22/",
+        "filenamePrefix": "shadow_",
+        "pageNumberPadding": 2,
+        "imageFormat": "webp",
+        "pageCount": 17
+      },
+      "vocabId": "not_found"
+    }
+  ],
+  "vocabulary": {
+    "vocab1": [
+      { "word": "skyscraper", "pronunciation": "/ˈskaɪˌskreɪpər/", "definition": "A very tall building with many floors.", "example": "The Empire State Building is famous." },
+      { "word": "subway", "pronunciation": "/ˈsʌbˌweɪ/", "definition": "An underground railway system in a city.", "example": "Let's take the subway." },
+      { "word": "tourist", "pronunciation": "/ˈtʊrɪst/", "definition": "A person who travels for pleasure.", "example": "Many tourists visit Times Square." }
+    ],
+    "vocab2": [
+      { "word": "clue", "definition": "Evidence that helps solve a problem."},
+      { "word": "suspect", "definition": "Person thought to be guilty."}
+    ],
+    "vocab3": [
+      { "word": "quantum", "definition": "A discrete quantity of energy."},
+      { "word": "interstellar", "definition": "Between stars."}
+    ],
+    "not_found": [
+      { "word": "N/A", "definition": "No specific vocabulary list found for this comic." }
+    ]
+  }
+}

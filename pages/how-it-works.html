@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How It Works - Comic Linguist</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+            padding: 0 20px;
+        }
+
+        /* Main Content Styles */
+        main.page-content {
+            padding: 20px 0;
+        }
+
+        main.page-content h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #e44d26;
+        }
+
+        /* Feature Section Styles */
+        .feature-section {
+            background-color: #fff;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-section h2 {
+            color: #e44d26;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #ddd;
+            padding-bottom: 5px;
+        }
+
+        .feature-content {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .feature-text h3 {
+            color: #e44d26;
+            margin-top: 10px;
+        }
+
+        .feature-text ul {
+            list-style: disc;
+            padding-left: 20px;
+        }
+
+        .feature-text li {
+            margin-bottom: 5px;
+        }
+
+        .tool-feature {
+            margin-bottom: 20px;
+        }
+
+        .tool-feature h3 i {
+            margin-right: 8px;
+            color: #e44d26;
+        }
+
+        /* CTA Section Styles */
+        .cta-section {
+            text-align: center;
+            padding: 30px 0;
+            background-color: #e44d26;
+            color: #fff;
+            border-radius: 8px;
+            margin-top: 30px;
+        }
+
+        .cta-section h2 {
+            margin-bottom: 20px;
+        }
+
+        .cta-buttons a {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 0 10px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-primary {
+            background-color: #fff;
+            color: #e44d26;
+        }
+
+        .btn-outline {
+            border: 2px solid #fff;
+            color: #fff;
+        }
+
+        .btn-primary:hover, .btn-outline:hover {
+            background-color: #333;
+            color: #fff;
+        }
+
+        /* Footer Styles */
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        .footer-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        .footer-col {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .footer-col h3 {
+            color: #e44d26;
+            margin-bottom: 15px;
+        }
+
+        .footer-col p {
+            line-height: 1.6;
+        }
+
+        .footer-col ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 8px;
+        }
+
+        .footer-col ul li a {
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-col ul li a:hover {
+            color: #e44d26;
+        }
+
+        .social-links a {
+            display: inline-block;
+            margin-right: 10px;
+            font-size: 20px;
+            color: #fff;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: #e44d26;
+        }
+
+        .copyright {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid #555;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                width: 95%;
+            }
+
+            .feature-content {
+                flex-direction: column;
+            }
+
+            .footer-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .footer-col {
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main class="container page-content">
+        <h1>How It Works</h1>
+
+        <section class="feature-section">
+            <h2>Getting Started</h2>
+            <div class="feature-content">
+                <div class="feature-text">
+                    <h3>Step 1: Assessment</h3>
+                    <ul>
+                        <li>Take our quick placement test</li>
+                        <li>Determine your current English level</li>
+                        <li>Get personalized comic recommendations</li>
+                        <li>Create your learning profile</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="feature-section">
+            <h2>Learning Process</h2>
+            <div class="feature-content">
+                <div class="feature-text">
+                    <h3>Step 2: Choose Your Comics</h3>
+                    <ul>
+                        <li>Browse comics by level and genre</li>
+                        <li>Select stories that interest you</li>
+                        <li>Access preview pages before starting</li>
+                        <li>Track your reading history</li>
+                    </ul>
+
+                    <h3>Step 3: Interactive Reading</h3>
+                    <ul>
+                        <li>Click any word for instant definitions</li>
+                        <li>Listen to proper pronunciation</li>
+                        <li>Save words to your vocabulary list</li>
+                        <li>Practice with context-based exercises</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="feature-section">
+            <h2>Learning Tools</h2>
+            <div class="feature-content">
+                <div class="feature-text">
+                    <div class="tool-feature">
+                        <h3><i class="fas fa-book-reader"></i> Vocabulary Assistant</h3>
+                        <ul>
+                            <li>Interactive word definitions</li>
+                            <li>Audio pronunciation</li>
+                            <li>Example sentences</li>
+                            <li>Personal word lists</li>
+                        </ul>
+                    </div>
+
+                    <div class="tool-feature">
+                        <h3><i class="fas fa-graduation-cap"></i> Grammar Helper</h3>
+                        <ul>
+                            <li>In-context grammar explanations</li>
+                            <li>Practice exercises</li>
+                            <li>Common usage examples</li>
+                            <li>Grammar rule references</li>
+                        </ul>
+                    </div>
+
+                    <div class="tool-feature">
+                        <h3><i class="fas fa-chart-line"></i> Progress Tracking</h3>
+                        <ul>
+                            <li>Reading speed monitoring</li>
+                            <li>Vocabulary growth charts</li>
+                            <li>Achievement badges</li>
+                            <li>Level advancement tracking</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="feature-section">
+            <h2>Practice and Review</h2>
+            <div class="feature-content">
+                <div class="feature-text">
+                    <h3>Step 4: Reinforcement Activities</h3>
+                    <ul>
+                        <li>Complete chapter quizzes</li>
+                        <li>Practice vocabulary exercises</li>
+                        <li>Participate in reading challenges</li>
+                        <li>Join discussion groups</li>
+                    </ul>
+
+                    <h3>Step 5: Track Progress</h3>
+                    <ul>
+                        <li>Monitor your reading speed</li>
+                        <li>Review vocabulary retention</li>
+                        <li>Check comprehension scores</li>
+                        <li>Earn achievement badges</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="feature-section">
+            <h2>Additional Features</h2>
+            <div class="feature-content">
+                <div class="feature-text">
+                    <div class="feature-item">
+                        <h3><i class="fas fa-users"></i> Community Learning</h3>
+                        <ul>
+                            <li>Join reading groups</li>
+                            <li>Share progress with friends</li>
+                            <li>Participate in discussions</li>
+                            <li>Exchange learning tips</li>
+                        </ul>
+                    </div>
+
+                    <div class="feature-item">
+                        <h3><i class="fas fa-mobile-alt"></i> Mobile Learning</h3>
+                        <ul>
+                            <li>Access comics on any device</li>
+                            <li>Offline reading mode</li>
+                            <li>Sync progress across devices</li>
+                            <li>Mobile-optimized interface</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="feature-section">
+            <h2>Support and Resources</h2>
+            <div class="feature-content">
+                <div class="feature-text">
+                    <ul>
+                        <li>24/7 learning support</li>
+                        <li>Comprehensive help guides</li>
+                        <li>Video tutorials</li>
+                        <li>Regular learning tips</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <div class="cta-section">
+            <h2>Ready to Start Learning?</h2>
+            <p>Join Comic Linguist today and start your English learning journey!</p>
+            <div class="cta-buttons">
+                <a href="#signup" class="btn btn-primary">Get Started</a>
+                <a href="contact.html" class="btn btn-outline">Contact Support</a>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container footer-container">
+            <div class="footer-col">
+                <h3>Comic Linguist</h3>
+                <p>Learn English through engaging comic books...</p>
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../index.html#comics">Comics</a></li>
+                    <li><a href="levels.html">Levels</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Resources</h3>
+                <ul>
+                    <li><a href="how-it-works.html">How It Works</a></li>
+                    <li><a href="learning-tips.html">Learning Tips</a></li>
+                    <li><a href="grammar-guides.html">Grammar Guides</a></li>
+                    <li><a href="vocabulary-lists.html">Vocabulary Lists</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Support</h3>
+                <ul>
+                    <li><a href="faq.html">FAQs</a></li>
+                    <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                    <li><a href="terms-of-service.html">Terms of Service</a></li>
+                    <li><a href="help-center.html">Help Center</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>© <span id="copyright-year">2025</span> Comic Linguist. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="../script.js"></script>
+</body>
+</html>
